@@ -1,0 +1,105 @@
+{
+    "type": "root",
+    "title": "",
+    "metadata": "",
+    "content": "",
+    "level": 0,
+    "location": [],
+    "block_ids": [],
+    "children": [
+        {
+            "type": "text",
+            "title": "Default Title",
+            "metadata": "",
+            "content": "",
+            "level": 1,
+            "location": [],
+            "block_ids": [],
+            "children": []
+        },
+        {
+            "type": "aside_text",
+            "title": "Page 298 - aside_text",
+            "metadata": "中信",
+            "content": "中信",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.955,
+                        0.474,
+                        0.999,
+                        0.524
+                    ],
+                    "page": 298
+                }
+            ],
+            "block_ids": [
+                258
+            ]
+        },
+        {
+            "type": "aside_text",
+            "title": "Page 303 - aside_text",
+            "metadata": "证券",
+            "content": "证券",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.931,
+                        0.313,
+                        0.984,
+                        0.449
+                    ],
+                    "page": 303
+                }
+            ],
+            "block_ids": [
+                265
+            ]
+        },
+        {
+            "type": "aside_text",
+            "title": "Page 304 - aside_text",
+            "metadata": "股份",
+            "content": "股份",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.937,
+                        0.31,
+                        0.996,
+                        0.449
+                    ],
+                    "page": 304
+                }
+            ],
+            "block_ids": [
+                266
+            ]
+        },
+        {
+            "type": "aside_text",
+            "title": "Page 305 - aside_text",
+            "metadata": "有限公司",
+            "content": "有限公司",
+            "level": -1,
+            "location": [
+                {
+                    "bbox": [
+                        0.911,
+                        0.327,
+                        0.968,
+                        0.59
+                    ],
+                    "page": 305
+                }
+            ],
+            "block_ids": [
+                269
+            ]
+        }
+    ]
+}

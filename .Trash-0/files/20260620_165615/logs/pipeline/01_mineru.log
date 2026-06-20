@@ -1,0 +1,38 @@
+===== mineru_pipeline =====
+start: 2026-06-20T16:56:16
+script:
+
+set -euo pipefail
+source /root/autodl-tmp/mineru-work/activate_mineru.sh
+export MINERU_MODEL_SOURCE=local
+cd /root/autodl-tmp/mineru-work
+echo "[sixway] mode=pipeline"
+echo "[sixway] pdf=/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf"
+echo "[sixway] mineru_out=/autodl-fs/data/mineru_popo_sixway_text01/20260620_165615/mineru_raw/pipeline"
+echo "[sixway] command: mineru -p /root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf -o /autodl-fs/data/mineru_popo_sixway_text01/20260620_165615/mineru_raw/pipeline -b pipeline -m auto"
+mineru -p /root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf -o /autodl-fs/data/mineru_popo_sixway_text01/20260620_165615/mineru_raw/pipeline -b pipeline -m auto
+
+
+===== output =====
+[sixway] mode=pipeline
+[sixway] pdf=/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf
+[sixway] mineru_out=/autodl-fs/data/mineru_popo_sixway_text01/20260620_165615/mineru_raw/pipeline
+[sixway] command: mineru -p /root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf -o /autodl-fs/data/mineru_popo_sixway_text01/20260620_165615/mineru_raw/pipeline -b pipeline -m auto
+
+libgomp: Invalid value for environment variable OMP_NUM_THREADS
+2026-06-20 16:56:21.405 | INFO     | mineru.cli.client:run_orchestrated_cli:953 - Started local mineru-api at http://127.0.0.1:53745
+
+libgomp: Invalid value for environment variable OMP_NUM_THREADS
+2026-06-20 16:56:28.413 | INFO     | __main__:create_app:236 - Request concurrency limited to 3
+INFO:     Started server process [1593]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53745 (Press CTRL+C to quit)
+2026-06-20 16:56:28.524 | INFO     | mineru.cli.client:run_planned_task:832 - Submitting batch 1/1 | 1 document, 311 pages in this batch | 311 pages total | task#1 [text01]
+2026-06-20 16:56:33.110 | INFO     | mineru.backend.pipeline.pipeline_analyze:doc_analyze_streaming:209 - Pipeline processing-window multi-file run. doc_count=1, total_pages=311, window_size=64, total_batches=5
+Start MinerU FastAPI Service: http://127.0.0.1:53745
+API documentation: http://127.0.0.1:53745/docs
+
+libgomp: Invalid value for environment variable OMP_NUM_THREADS
+
+libgomp: Invalid value for environment variable OMP_NUM_THREADS

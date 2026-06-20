@@ -1,0 +1,20 @@
+{
+  "script": "/root/autodl-tmp/mineru-work/run_text01_sixway.py",
+  "run_root": "/autodl-fs/data/mineru_popo_sixway_text01/20260620_165615",
+  "start_time": "2026-06-20T16:56:15",
+  "doc_id": "text01",
+  "pdf": "/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf",
+  "config": {
+    "mineru_activate": "/root/autodl-tmp/mineru-work/activate_mineru.sh",
+    "popo_activate": "/root/autodl-tmp/mineru-work/activate_popo.sh",
+    "popo_repo": "/root/autodl-tmp/mineru-work/repos/MinerU-Popo",
+    "popo_model": "/root/autodl-tmp/models/MinerU-Popo",
+    "modes": "pipeline,vlm,hybrid",
+    "start_page": null,
+    "end_page": null,
+    "cuda_visible_devices": "0",
+    "omp_threads": 8,
+    "popo_max_new_tokens": 8192
+  },
+  "modes": {}
+}

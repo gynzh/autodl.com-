@@ -1,0 +1,1684 @@
+===== mineru_pipeline =====
+start: 2026-06-20T17:07:08
+script:
+
+set -euo pipefail
+source /root/autodl-tmp/mineru-work/activate_mineru.sh
+export MINERU_MODEL_SOURCE=local
+cd /root/autodl-tmp/mineru-work
+echo "[sixway] mode=pipeline"
+echo "[sixway] pdf=/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf"
+echo "[sixway] mineru_out=/autodl-fs/data/mineru_popo_sixway_text01/20260620_170708/mineru_raw/pipeline"
+echo "[sixway] command: mineru -p /root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf -o /autodl-fs/data/mineru_popo_sixway_text01/20260620_170708/mineru_raw/pipeline -b pipeline -m auto"
+mineru -p /root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf -o /autodl-fs/data/mineru_popo_sixway_text01/20260620_170708/mineru_raw/pipeline -b pipeline -m auto
+
+
+===== output =====
+[sixway] mode=pipeline
+[sixway] pdf=/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf
+[sixway] mineru_out=/autodl-fs/data/mineru_popo_sixway_text01/20260620_170708/mineru_raw/pipeline
+[sixway] command: mineru -p /root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf -o /autodl-fs/data/mineru_popo_sixway_text01/20260620_170708/mineru_raw/pipeline -b pipeline -m auto
+
+libgomp: Invalid value for environment variable OMP_NUM_THREADS
+2026-06-20 17:07:13.504 | INFO     | mineru.cli.client:run_orchestrated_cli:953 - Started local mineru-api at http://127.0.0.1:40487
+
+libgomp: Invalid value for environment variable OMP_NUM_THREADS
+2026-06-20 17:07:20.191 | INFO     | __main__:create_app:236 - Request concurrency limited to 3
+INFO:     Started server process [4133]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:40487 (Press CTRL+C to quit)
+2026-06-20 17:07:20.612 | INFO     | mineru.cli.client:run_planned_task:832 - Submitting batch 1/1 | 1 document, 311 pages in this batch | 311 pages total | task#1 [text01]
+2026-06-20 17:07:25.345 | INFO     | mineru.backend.pipeline.pipeline_analyze:doc_analyze_streaming:209 - Pipeline processing-window multi-file run. doc_count=1, total_pages=311, window_size=64, total_batches=5
+Start MinerU FastAPI Service: http://127.0.0.1:40487
+API documentation: http://127.0.0.1:40487/docs
+
+libgomp: Invalid value for environment variable OMP_NUM_THREADS
+
+libgomp: Invalid value for environment variable OMP_NUM_THREADS
+2026-06-20 17:07:37.189 | INFO     | mineru.backend.pipeline.pipeline_analyze:doc_analyze_streaming:264 - Pipeline processing window batch 1/5: 64/311 pages, batch_pages=64, doc_slices=doc0:1-64
+2026-06-20 17:07:37.309 | INFO     | mineru.backend.pipeline.pipeline_analyze:batch_image_analyze:364 - GPU Memory: 24 GB, Batch Ratio: 8. 
+2026-06-20 17:07:37.310 | INFO     | mineru.backend.pipeline.model_init:__init__:239 - DocAnalysis init, this may take some times......
+2026-06-20 17:07:43.003 | INFO     | mineru.backend.pipeline.model_init:__init__:291 - DocAnalysis init done!
+2026-06-20 17:07:43.003 | INFO     | mineru.backend.pipeline.pipeline_analyze:custom_model_init:83 - model init cost: 5.69349479675293
+
+Layout Predict:   0%|          | 0/64 [00:00<?, ?it/s]
+Layout Predict:  12%|█▎        | 8/64 [00:01<00:07,  7.34it/s]
+Layout Predict:  25%|██▌       | 16/64 [00:01<00:03, 12.16it/s]
+Layout Predict:  38%|███▊      | 24/64 [00:01<00:02, 16.13it/s]
+Layout Predict:  50%|█████     | 32/64 [00:02<00:01, 19.14it/s]
+Layout Predict:  62%|██████▎   | 40/64 [00:02<00:01, 21.29it/s]
+Layout Predict:  75%|███████▌  | 48/64 [00:02<00:00, 21.13it/s]
+Layout Predict:  88%|████████▊ | 56/64 [00:03<00:00, 22.39it/s]
+Layout Predict: 100%|██████████| 64/64 [00:03<00:00, 22.16it/s]
+Layout Predict: 100%|██████████| 64/64 [00:03<00:00, 18.74it/s]
+
+Table orientation det:   0%|          | 0/24 [00:00<?, ?it/s]
+Table orientation det:  29%|██▉       | 7/24 [00:00<00:01, 10.06it/s]
+Table orientation det:  46%|████▌     | 11/24 [00:00<00:01, 11.74it/s]
+Table orientation det:  54%|█████▍    | 13/24 [00:01<00:00, 12.50it/s]
+Table orientation det:  67%|██████▋   | 16/24 [00:01<00:00, 14.39it/s]
+Table orientation det:  79%|███████▉  | 19/24 [00:01<00:00, 16.40it/s]
+Table orientation det:  88%|████████▊ | 21/24 [00:01<00:00, 16.08it/s]
+Table orientation det:  96%|█████████▌| 23/24 [00:01<00:00, 16.43it/s]
+Table orientation score: 100%|██████████| 24/24 [00:01<00:00, 16.43it/s]
+Table orientation score: 100%|██████████| 24/24 [00:01<00:00, 16.43it/s]
+Table orientation: 100%|██████████| 24/24 [00:01<00:00, 16.43it/s]      
+Table orientation: 100%|██████████| 24/24 [00:01<00:00, 16.43it/s]
+Table orientation: 100%|██████████| 24/24 [00:01<00:00, 14.23it/s]
+
+Table-ocr det:   0%|          | 0/24 [00:00<?, ?it/s]
+Table-ocr det:  29%|██▉       | 7/24 [00:01<00:03,  5.01it/s]
+Table-ocr det:  33%|███▎      | 8/24 [00:01<00:03,  5.01it/s]
+Table-ocr det:  46%|████▌     | 11/24 [00:01<00:02,  5.89it/s]
+Table-ocr det:  54%|█████▍    | 13/24 [00:02<00:01,  7.20it/s]
+Table-ocr det:  67%|██████▋   | 16/24 [00:02<00:00,  9.73it/s]
+Table-ocr det:  88%|████████▊ | 21/24 [00:02<00:00, 15.60it/s]
+Table-ocr det: 100%|██████████| 24/24 [00:02<00:00,  9.95it/s]
+
+Table-ocr rec ch:   0%|          | 0/875 [00:00<?, ?it/s]
+Table-ocr rec ch:   4%|▍         | 36/875 [00:00<00:02, 351.26it/s]
+Table-ocr rec ch:  12%|█▏        | 108/875 [00:00<00:01, 556.48it/s]
+Table-ocr rec ch:  21%|██        | 180/875 [00:00<00:01, 619.67it/s]
+Table-ocr rec ch:  29%|██▉       | 252/875 [00:00<00:00, 647.05it/s]
+Table-ocr rec ch:  37%|███▋      | 324/875 [00:00<00:00, 660.26it/s]
+Table-ocr rec ch:  45%|████▌     | 396/875 [00:00<00:00, 666.07it/s]
+Table-ocr rec ch:  53%|█████▎    | 468/875 [00:00<00:00, 664.25it/s]
+Table-ocr rec ch:  62%|██████▏   | 540/875 [00:00<00:00, 554.90it/s]
+Table-ocr rec ch:  69%|██████▊   | 600/875 [00:01<00:00, 311.81it/s]
+Table-ocr rec ch:  74%|███████▍  | 648/875 [00:01<00:00, 239.91it/s]
+Table-ocr rec ch:  78%|███████▊  | 684/875 [00:01<00:00, 221.92it/s]
+Table-ocr rec ch:  82%|████████▏ | 714/875 [00:02<00:00, 195.07it/s]
+Table-ocr rec ch:  85%|████████▌ | 744/875 [00:02<00:00, 180.49it/s]
+Table-ocr rec ch:  88%|████████▊ | 768/875 [00:02<00:00, 183.84it/s]
+Table-ocr rec ch:  91%|█████████ | 792/875 [00:02<00:00, 176.41it/s]
+Table-ocr rec ch:  93%|█████████▎| 816/875 [00:02<00:00, 160.35it/s]
+Table-ocr rec ch:  97%|█████████▋| 846/875 [00:02<00:00, 171.63it/s]
+Table-ocr rec ch:  99%|█████████▉| 870/875 [00:03<00:00, 155.07it/s]
+Table-ocr rec ch: 100%|██████████| 875/875 [00:03<00:00, 274.60it/s]
+
+Table-wireless Predict:   0%|          | 0/24 [00:00<?, ?it/s]
+Table-wireless Predict:  17%|█▋        | 4/24 [00:00<00:04,  4.33it/s]
+Table-wireless Predict:  33%|███▎      | 8/24 [00:01<00:03,  5.03it/s]
+Table-wireless Predict:  50%|█████     | 12/24 [00:02<00:01,  6.06it/s]
+Table-wireless Predict:  67%|██████▋   | 16/24 [00:02<00:01,  6.24it/s]
+Table-wireless Predict:  83%|████████▎ | 20/24 [00:03<00:00,  6.06it/s]
+Table-wireless Predict: 100%|██████████| 24/24 [00:04<00:00,  5.66it/s]
+Table-wireless Predict: 100%|██████████| 24/24 [00:04<00:00,  5.67it/s]
+
+Table-wired Predict:   0%|          | 0/23 [00:00<?, ?it/s]
+Table-wired Predict:   4%|▍         | 1/23 [00:01<00:24,  1.09s/it]
+Table-wired Predict:   9%|▊         | 2/23 [00:05<01:00,  2.86s/it]
+Table-wired Predict:  13%|█▎        | 3/23 [00:07<00:50,  2.52s/it]
+Table-wired Predict:  17%|█▋        | 4/23 [00:07<00:31,  1.68s/it]
+Table-wired Predict:  22%|██▏       | 5/23 [00:08<00:22,  1.26s/it]
+Table-wired Predict:  26%|██▌       | 6/23 [00:10<00:28,  1.68s/it]
+Table-wired Predict:  30%|███       | 7/23 [00:11<00:20,  1.26s/it]
+Table-wired Predict:  35%|███▍      | 8/23 [00:13<00:22,  1.53s/it]
+Table-wired Predict:  39%|███▉      | 9/23 [00:13<00:15,  1.14s/it]
+Table-wired Predict:  43%|████▎     | 10/23 [00:13<00:11,  1.10it/s]
+Table-wired Predict:  48%|████▊     | 11/23 [00:14<00:08,  1.37it/s]
+Table-wired Predict:  52%|█████▏    | 12/23 [00:14<00:07,  1.52it/s]
+Table-wired Predict:  57%|█████▋    | 13/23 [00:15<00:07,  1.37it/s]
+Table-wired Predict:  61%|██████    | 14/23 [00:16<00:07,  1.19it/s]
+Table-wired Predict:  65%|██████▌   | 15/23 [00:17<00:05,  1.35it/s]
+Table-wired Predict:  70%|██████▉   | 16/23 [00:19<00:08,  1.15s/it]
+Table-wired Predict:  74%|███████▍  | 17/23 [00:19<00:05,  1.09it/s]
+Table-wired Predict:  78%|███████▊  | 18/23 [00:21<00:05,  1.07s/it]
+Table-wired Predict:  83%|████████▎ | 19/23 [00:23<00:05,  1.44s/it]
+Table-wired Predict:  87%|████████▋ | 20/23 [00:25<00:05,  1.76s/it]
+Table-wired Predict:  91%|█████████▏| 21/23 [00:26<00:03,  1.53s/it]
+Table-wired Predict:  96%|█████████▌| 22/23 [00:27<00:01,  1.22s/it]
+Table-wired Predict: 100%|██████████| 23/23 [00:28<00:00,  1.30s/it]
+Table-wired Predict: 100%|██████████| 23/23 [00:28<00:00,  1.26s/it]
+
+OCR-det ch:   0%|          | 0/526 [00:00<?, ?it/s]
+OCR-det ch:   1%|          | 4/526 [00:02<04:25,  1.97it/s]
+OCR-det ch:  13%|█▎        | 69/526 [00:02<00:11, 41.00it/s]
+OCR-det ch:  18%|█▊        | 93/526 [00:02<00:08, 48.23it/s]
+OCR-det ch:  20%|██        | 107/526 [00:02<00:09, 46.36it/s]
+OCR-det ch:  23%|██▎       | 120/526 [00:03<00:07, 51.70it/s]
+OCR-det ch:  32%|███▏      | 168/526 [00:03<00:03, 93.36it/s]
+OCR-det ch:  36%|███▌      | 188/526 [00:03<00:03, 96.80it/s]
+OCR-det ch:  40%|███▉      | 210/526 [00:03<00:02, 105.65it/s]
+OCR-det ch:  48%|████▊     | 250/526 [00:03<00:02, 136.99it/s]
+OCR-det ch:  61%|██████    | 319/526 [00:03<00:00, 210.28it/s]
+OCR-det ch:  72%|███████▏  | 378/526 [00:04<00:00, 188.07it/s]
+OCR-det ch:  76%|███████▋  | 402/526 [00:04<00:00, 128.46it/s]
+OCR-det ch:  80%|████████  | 422/526 [00:05<00:00, 107.35it/s]
+OCR-det ch:  83%|████████▎ | 438/526 [00:05<00:00, 104.91it/s]
+OCR-det ch:  87%|████████▋ | 460/526 [00:05<00:00, 92.86it/s] 
+OCR-det ch:  90%|█████████ | 475/526 [00:05<00:00, 89.59it/s]
+OCR-det ch:  94%|█████████▍| 494/526 [00:06<00:00, 75.84it/s]
+OCR-det ch:  96%|█████████▌| 504/526 [00:06<00:00, 68.51it/s]
+OCR-det ch:  98%|█████████▊| 516/526 [00:06<00:00, 68.01it/s]
+OCR-det ch: 100%|█████████▉| 524/526 [00:06<00:00, 57.17it/s]
+OCR-det ch: 100%|██████████| 526/526 [00:06<00:00, 76.46it/s]
+
+Seal Predict:   0%|          | 0/1 [00:00<?, ?it/s]
+Seal Predict: 100%|██████████| 1/1 [00:01<00:00,  1.04s/it]
+Seal Predict: 100%|██████████| 1/1 [00:01<00:00,  1.04s/it]
+
+Processing pages:   0%|          | 0/311 [00:00<?, ?it/s]
+Processing pages:   1%|          | 2/311 [00:00<00:18, 16.75it/s]
+Processing pages:   1%|▏         | 4/311 [00:00<00:16, 18.24it/s]
+Processing pages:   2%|▏         | 6/311 [00:00<00:17, 17.46it/s]
+Processing pages:   3%|▎         | 8/311 [00:00<00:19, 15.39it/s]
+Processing pages:   3%|▎         | 10/311 [00:00<00:21, 13.78it/s]
+Processing pages:   4%|▍         | 12/311 [00:00<00:19, 15.38it/s]
+Processing pages:   5%|▍         | 14/311 [00:00<00:18, 16.42it/s]
+Processing pages:   5%|▌         | 16/311 [00:00<00:17, 16.49it/s]
+Processing pages:   6%|▌         | 18/311 [00:01<00:17, 16.83it/s]
+Processing pages:   6%|▋         | 20/311 [00:01<00:17, 16.94it/s]
+Processing pages:   7%|▋         | 22/311 [00:01<00:16, 17.09it/s]
+Processing pages:   8%|▊         | 24/311 [00:01<00:16, 17.28it/s]
+Processing pages:   9%|▊         | 27/311 [00:01<00:15, 18.17it/s]
+Processing pages:   9%|▉         | 29/311 [00:01<00:15, 17.92it/s]
+Processing pages:  10%|█         | 32/311 [00:01<00:15, 18.44it/s]
+Processing pages:  11%|█         | 34/311 [00:01<00:15, 17.83it/s]
+Processing pages:  12%|█▏        | 36/311 [00:02<00:15, 17.81it/s]
+Processing pages:  12%|█▏        | 38/311 [00:02<00:15, 17.23it/s]
+Processing pages:  13%|█▎        | 40/311 [00:02<00:15, 16.99it/s]
+Processing pages:  14%|█▎        | 42/311 [00:02<00:15, 17.13it/s]
+Processing pages:  14%|█▍        | 44/311 [00:02<00:15, 17.06it/s]
+Processing pages:  15%|█▍        | 46/311 [00:02<00:16, 16.51it/s]
+Processing pages:  15%|█▌        | 48/311 [00:02<00:17, 15.41it/s]
+Processing pages:  16%|█▌        | 50/311 [00:03<00:27,  9.49it/s]
+Processing pages:  17%|█▋        | 52/311 [00:03<00:23, 11.22it/s]
+Processing pages:  17%|█▋        | 54/311 [00:03<00:20, 12.78it/s]
+Processing pages:  18%|█▊        | 56/311 [00:03<00:18, 13.90it/s]
+Processing pages:  19%|█▊        | 58/311 [00:03<00:17, 14.76it/s]
+Processing pages:  19%|█▉        | 60/311 [00:03<00:16, 15.31it/s]
+Processing pages:  20%|█▉        | 62/311 [00:03<00:15, 15.71it/s]
+Processing pages:  21%|██        | 64/311 [00:04<00:15, 15.91it/s]2026-06-20 17:08:48.569 | INFO     | mineru.backend.pipeline.pipeline_analyze:doc_analyze_streaming:264 - Pipeline processing window batch 2/5: 128/311 pages, batch_pages=64, doc_slices=doc0:65-128
+2026-06-20 17:08:48.570 | INFO     | mineru.backend.pipeline.pipeline_analyze:batch_image_analyze:364 - GPU Memory: 24 GB, Batch Ratio: 8. 
+
+
+Layout Predict:   0%|          | 0/64 [00:00<?, ?it/s][A
+
+Layout Predict:  12%|█▎        | 8/64 [00:00<00:02, 20.71it/s][A
+
+Layout Predict:  25%|██▌       | 16/64 [00:00<00:02, 22.87it/s][A
+
+Layout Predict:  38%|███▊      | 24/64 [00:01<00:01, 24.83it/s][A
+
+Layout Predict:  50%|█████     | 32/64 [00:01<00:01, 25.08it/s][A
+
+Layout Predict:  62%|██████▎   | 40/64 [00:01<00:00, 25.54it/s][A
+
+Layout Predict:  75%|███████▌  | 48/64 [00:01<00:00, 25.72it/s][A
+
+Layout Predict:  88%|████████▊ | 56/64 [00:02<00:00, 25.77it/s][A
+
+Layout Predict: 100%|██████████| 64/64 [00:02<00:00, 24.74it/s][A
+Layout Predict: 100%|██████████| 64/64 [00:02<00:00, 24.76it/s]
+
+
+Table orientation det:   0%|          | 0/83 [00:00<?, ?it/s][A
+
+Table orientation det:   4%|▎         | 3/83 [00:01<00:26,  3.00it/s][A
+
+Table orientation det:   8%|▊         | 7/83 [00:01<00:10,  7.44it/s][A
+
+Table orientation det:  25%|██▌       | 21/83 [00:01<00:02, 26.07it/s][A
+
+Table orientation det:  34%|███▎      | 28/83 [00:01<00:02, 25.14it/s][A
+
+Table orientation det:  43%|████▎     | 36/83 [00:01<00:01, 25.89it/s][A
+
+Table orientation det:  63%|██████▎   | 52/83 [00:02<00:00, 32.35it/s][A
+
+Table orientation det:  73%|███████▎  | 61/83 [00:02<00:00, 33.45it/s][A
+
+Table orientation det:  81%|████████  | 67/83 [00:02<00:00, 33.68it/s][A
+
+Table orientation det:  89%|████████▉ | 74/83 [00:02<00:00, 32.37it/s][A
+
+Table orientation det:  94%|█████████▍| 78/83 [00:03<00:00, 27.46it/s][A
+
+Table orientation det:  98%|█████████▊| 81/83 [00:03<00:00, 24.27it/s][A
+
+Table orientation det:  99%|█████████▉| 83/84 [00:03<00:00, 24.27it/s][A
+
+Table orientation score:  99%|█████████▉| 83/84 [00:03<00:00, 24.27it/s][A
+
+Table orientation score:  99%|█████████▉| 83/84 [00:03<00:00, 24.27it/s][A
+
+Table orientation score: 100%|██████████| 84/84 [00:03<00:00, 21.26it/s][A
+
+Table orientation score:  61%|██████    | 84/138 [00:03<00:02, 21.26it/s][A
+
+Table orientation rec:  61%|██████    | 84/138 [00:03<00:02, 21.26it/s]  [A
+
+Table orientation rec:  61%|██████    | 84/138 [00:03<00:02, 21.26it/s][A
+
+Table orientation: 100%|██████████| 138/138 [00:03<00:00, 21.26it/s]   [A
+
+Table orientation: 100%|██████████| 138/138 [00:03<00:00, 21.26it/s][A
+Table orientation: 100%|██████████| 138/138 [00:03<00:00, 38.08it/s]
+
+Processing pages:  21%|██        | 64/311 [00:15<00:15, 15.91it/s]
+
+Table-ocr det:   0%|          | 0/83 [00:00<?, ?it/s][A
+
+Table-ocr det:   4%|▎         | 3/83 [00:02<01:05,  1.22it/s][A
+
+Table-ocr det:  22%|██▏       | 18/83 [00:02<00:06,  9.35it/s][A
+
+Table-ocr det:  34%|███▎      | 28/83 [00:02<00:03, 14.51it/s][A
+
+Table-ocr det:  43%|████▎     | 36/83 [00:02<00:02, 18.73it/s][A
+
+Table-ocr det:  63%|██████▎   | 52/83 [00:03<00:01, 29.86it/s][A
+
+Table-ocr det:  73%|███████▎  | 61/83 [00:03<00:00, 33.41it/s][A
+
+Table-ocr det:  84%|████████▍ | 70/83 [00:03<00:00, 37.56it/s][A
+
+Table-ocr det:  93%|█████████▎| 77/83 [00:03<00:00, 37.66it/s][A
+
+Table-ocr det: 100%|██████████| 83/83 [00:03<00:00, 36.64it/s][A
+Table-ocr det: 100%|██████████| 83/83 [00:03<00:00, 21.18it/s]
+
+
+Table-ocr rec ch:   0%|          | 0/3761 [00:00<?, ?it/s][A
+
+Table-ocr rec ch:   2%|▏         | 66/3761 [00:00<00:05, 633.57it/s][A
+
+Table-ocr rec ch:   4%|▎         | 138/3761 [00:00<00:05, 651.72it/s][A
+
+Table-ocr rec ch:   5%|▌         | 204/3761 [00:00<00:05, 641.42it/s][A
+
+Table-ocr rec ch:   7%|▋         | 270/3761 [00:00<00:05, 644.63it/s][A
+
+Table-ocr rec ch:   9%|▉         | 342/3761 [00:00<00:05, 653.51it/s][A
+
+Table-ocr rec ch:  11%|█         | 414/3761 [00:00<00:05, 658.50it/s][A
+
+Table-ocr rec ch:  13%|█▎        | 480/3761 [00:00<00:04, 656.48it/s][A
+
+Table-ocr rec ch:  15%|█▍        | 552/3761 [00:00<00:04, 663.13it/s][A
+
+Table-ocr rec ch:  17%|█▋        | 624/3761 [00:00<00:05, 584.58it/s][A
+
+Table-ocr rec ch:  18%|█▊        | 690/3761 [00:01<00:05, 603.12it/s][A
+
+Table-ocr rec ch:  20%|██        | 762/3761 [00:01<00:04, 623.70it/s][A
+
+Table-ocr rec ch:  22%|██▏       | 834/3761 [00:01<00:04, 638.74it/s][A
+
+Table-ocr rec ch:  24%|██▍       | 906/3761 [00:01<00:04, 650.07it/s][A
+
+Table-ocr rec ch:  26%|██▌       | 978/3761 [00:01<00:04, 654.83it/s][A
+
+Table-ocr rec ch:  28%|██▊       | 1044/3761 [00:01<00:04, 653.21it/s][A
+
+Table-ocr rec ch:  30%|██▉       | 1110/3761 [00:01<00:04, 654.98it/s][A
+
+Table-ocr rec ch:  31%|███▏      | 1182/3761 [00:01<00:03, 659.13it/s][A
+
+Table-ocr rec ch:  33%|███▎      | 1254/3761 [00:01<00:03, 657.36it/s][A
+
+Table-ocr rec ch:  35%|███▌      | 1326/3761 [00:02<00:03, 662.59it/s][A
+
+Table-ocr rec ch:  37%|███▋      | 1398/3761 [00:02<00:03, 663.02it/s][A
+
+Table-ocr rec ch:  39%|███▉      | 1470/3761 [00:02<00:03, 666.76it/s][A
+
+Table-ocr rec ch:  41%|████      | 1542/3761 [00:02<00:03, 669.13it/s][A
+
+Table-ocr rec ch:  43%|████▎     | 1614/3761 [00:02<00:03, 669.41it/s][A
+
+Table-ocr rec ch:  45%|████▍     | 1686/3761 [00:02<00:03, 662.35it/s][A
+
+Table-ocr rec ch:  47%|████▋     | 1758/3761 [00:02<00:03, 664.79it/s][A
+
+Table-ocr rec ch:  49%|████▊     | 1830/3761 [00:02<00:02, 667.63it/s][A
+
+Table-ocr rec ch:  51%|█████     | 1902/3761 [00:02<00:02, 669.86it/s][A
+
+Table-ocr rec ch:  52%|█████▏    | 1974/3761 [00:03<00:02, 671.83it/s][A
+
+Table-ocr rec ch:  54%|█████▍    | 2046/3761 [00:03<00:02, 669.22it/s][A
+
+Table-ocr rec ch:  56%|█████▋    | 2118/3761 [00:03<00:02, 666.96it/s][A
+
+Table-ocr rec ch:  58%|█████▊    | 2190/3761 [00:03<00:02, 664.87it/s][A
+
+Table-ocr rec ch:  60%|██████    | 2262/3761 [00:03<00:02, 662.30it/s][A
+
+Table-ocr rec ch:  62%|██████▏   | 2334/3761 [00:03<00:02, 653.76it/s][A
+
+Table-ocr rec ch:  64%|██████▍   | 2400/3761 [00:03<00:02, 653.66it/s][A
+
+Table-ocr rec ch:  66%|██████▌   | 2472/3761 [00:03<00:01, 656.46it/s][A
+
+Table-ocr rec ch:  67%|██████▋   | 2538/3761 [00:03<00:01, 647.18it/s][A
+
+Table-ocr rec ch:  69%|██████▉   | 2604/3761 [00:03<00:01, 646.45it/s][A
+
+Table-ocr rec ch:  71%|███████   | 2670/3761 [00:04<00:01, 648.60it/s][A
+
+Table-ocr rec ch:  73%|███████▎  | 2736/3761 [00:04<00:01, 649.50it/s][A
+
+Table-ocr rec ch:  75%|███████▍  | 2802/3761 [00:04<00:01, 648.33it/s][A
+
+Table-ocr rec ch:  76%|███████▋  | 2868/3761 [00:04<00:01, 646.11it/s][A
+
+Table-ocr rec ch:  78%|███████▊  | 2934/3761 [00:04<00:01, 646.26it/s][A
+
+Table-ocr rec ch:  80%|███████▉  | 3000/3761 [00:04<00:01, 641.82it/s][A
+
+Table-ocr rec ch:  82%|████████▏ | 3066/3761 [00:04<00:01, 640.19it/s][A
+
+Table-ocr rec ch:  83%|████████▎ | 3132/3761 [00:04<00:00, 638.54it/s][A
+
+Table-ocr rec ch:  85%|████████▌ | 3198/3761 [00:04<00:00, 633.58it/s][A
+
+Table-ocr rec ch:  87%|████████▋ | 3264/3761 [00:05<00:00, 497.99it/s][A
+
+Table-ocr rec ch:  88%|████████▊ | 3324/3761 [00:05<00:01, 374.91it/s][A
+
+Table-ocr rec ch:  90%|████████▉ | 3372/3761 [00:05<00:01, 315.14it/s][A
+
+Table-ocr rec ch:  91%|█████████ | 3414/3761 [00:05<00:01, 275.00it/s][A
+
+Table-ocr rec ch:  92%|█████████▏| 3450/3761 [00:05<00:01, 260.06it/s][A
+
+Table-ocr rec ch:  93%|█████████▎| 3480/3761 [00:06<00:01, 250.23it/s][A
+
+Table-ocr rec ch:  93%|█████████▎| 3510/3761 [00:06<00:01, 234.07it/s][A
+
+Table-ocr rec ch:  94%|█████████▍| 3540/3761 [00:06<00:01, 207.96it/s][A
+
+Table-ocr rec ch:  95%|█████████▍| 3564/3761 [00:06<00:01, 196.38it/s][A
+
+Table-ocr rec ch:  95%|█████████▌| 3588/3761 [00:06<00:00, 178.45it/s][A
+
+Table-ocr rec ch:  96%|█████████▌| 3612/3761 [00:06<00:00, 173.83it/s][A
+
+Table-ocr rec ch:  97%|█████████▋| 3630/3761 [00:07<00:00, 172.52it/s][A
+
+Table-ocr rec ch:  97%|█████████▋| 3648/3761 [00:07<00:00, 171.55it/s][A
+
+Table-ocr rec ch:  97%|█████████▋| 3666/3761 [00:07<00:00, 160.39it/s][A
+
+Table-ocr rec ch:  98%|█████████▊| 3684/3761 [00:07<00:00, 152.21it/s][A
+
+Table-ocr rec ch:  98%|█████████▊| 3702/3761 [00:07<00:00, 145.85it/s][A
+
+Table-ocr rec ch:  99%|█████████▉| 3720/3761 [00:07<00:00, 139.51it/s][A
+
+Table-ocr rec ch:  99%|█████████▉| 3738/3761 [00:07<00:00, 144.76it/s][A
+
+Table-ocr rec ch: 100%|█████████▉| 3756/3761 [00:07<00:00, 136.00it/s][A
+Table-ocr rec ch: 100%|██████████| 3761/3761 [00:08<00:00, 469.03it/s]
+
+
+Table-wireless Predict:   0%|          | 0/83 [00:00<?, ?it/s][A
+
+Table-wireless Predict:   5%|▍         | 4/83 [00:00<00:13,  5.81it/s][A
+
+Table-wireless Predict:  10%|▉         | 8/83 [00:01<00:19,  3.82it/s][A
+
+Table-wireless Predict:  14%|█▍        | 12/83 [00:03<00:19,  3.58it/s][A
+
+Table-wireless Predict:  19%|█▉        | 16/83 [00:03<00:15,  4.20it/s][A
+
+Table-wireless Predict:  24%|██▍       | 20/83 [00:04<00:14,  4.28it/s][A
+
+Table-wireless Predict:  29%|██▉       | 24/83 [00:05<00:13,  4.34it/s][A
+
+Table-wireless Predict:  34%|███▎      | 28/83 [00:06<00:12,  4.25it/s][A
+
+Table-wireless Predict:  39%|███▊      | 32/83 [00:07<00:11,  4.29it/s][A
+
+Table-wireless Predict:  43%|████▎     | 36/83 [00:08<00:09,  4.82it/s][A
+
+Table-wireless Predict:  48%|████▊     | 40/83 [00:08<00:08,  5.09it/s][A
+
+Table-wireless Predict:  53%|█████▎    | 44/83 [00:09<00:07,  5.48it/s][A
+
+Table-wireless Predict:  58%|█████▊    | 48/83 [00:10<00:06,  5.54it/s][A
+
+Table-wireless Predict:  63%|██████▎   | 52/83 [00:10<00:05,  5.34it/s][A
+
+Table-wireless Predict:  67%|██████▋   | 56/83 [00:12<00:05,  4.53it/s][A
+
+Table-wireless Predict:  72%|███████▏  | 60/83 [00:12<00:04,  4.99it/s][A
+
+Table-wireless Predict:  77%|███████▋  | 64/83 [00:13<00:03,  5.21it/s][A
+
+Table-wireless Predict:  82%|████████▏ | 68/83 [00:14<00:02,  5.55it/s][A
+
+Table-wireless Predict:  87%|████████▋ | 72/83 [00:14<00:01,  5.65it/s][A
+
+Table-wireless Predict:  92%|█████████▏| 76/83 [00:15<00:01,  5.65it/s][A
+
+Table-wireless Predict:  96%|█████████▋| 80/83 [00:16<00:00,  5.68it/s][A
+
+Table-wireless Predict: 100%|██████████| 83/83 [00:17<00:00,  4.84it/s][A
+Table-wireless Predict: 100%|██████████| 83/83 [00:17<00:00,  4.86it/s]
+
+
+Table-wired Predict:   0%|          | 0/82 [00:00<?, ?it/s][A
+
+Table-wired Predict:   1%|          | 1/82 [00:04<06:28,  4.79s/it][A
+
+Table-wired Predict:   2%|▏         | 2/82 [00:05<03:24,  2.56s/it][A
+
+Table-wired Predict:   4%|▎         | 3/82 [00:06<02:04,  1.57s/it][A
+
+Table-wired Predict:   5%|▍         | 4/82 [00:06<01:35,  1.23s/it][A
+
+Table-wired Predict:   6%|▌         | 5/82 [00:07<01:31,  1.18s/it][A
+
+Table-wired Predict:   7%|▋         | 6/82 [00:08<01:25,  1.12s/it][A
+
+Table-wired Predict:   9%|▊         | 7/82 [00:11<01:58,  1.58s/it][A
+
+Table-wired Predict:  10%|▉         | 8/82 [00:13<01:59,  1.61s/it][A
+
+Table-wired Predict:  11%|█         | 9/82 [00:14<01:54,  1.58s/it][A
+
+Table-wired Predict:  12%|█▏        | 10/82 [00:16<02:07,  1.77s/it][A
+
+Table-wired Predict:  13%|█▎        | 11/82 [00:17<01:42,  1.45s/it][A
+
+Table-wired Predict:  15%|█▍        | 12/82 [00:18<01:18,  1.13s/it][A
+
+Table-wired Predict:  16%|█▌        | 13/82 [00:18<01:08,  1.01it/s][A
+
+Table-wired Predict:  17%|█▋        | 14/82 [00:19<00:59,  1.14it/s][A
+
+Table-wired Predict:  18%|█▊        | 15/82 [00:19<00:54,  1.22it/s][A
+
+Table-wired Predict:  20%|█▉        | 16/82 [00:20<00:49,  1.32it/s][A
+
+Table-wired Predict:  21%|██        | 17/82 [00:21<00:59,  1.09it/s][A
+
+Table-wired Predict:  22%|██▏       | 18/82 [00:22<00:52,  1.21it/s][A
+
+Table-wired Predict:  23%|██▎       | 19/82 [00:23<00:51,  1.23it/s][A
+
+Table-wired Predict:  24%|██▍       | 20/82 [00:24<00:48,  1.28it/s][A
+
+Table-wired Predict:  26%|██▌       | 21/82 [00:24<00:38,  1.57it/s][A
+
+Table-wired Predict:  27%|██▋       | 22/82 [00:25<00:50,  1.20it/s][A
+
+Table-wired Predict:  28%|██▊       | 23/82 [00:27<01:04,  1.10s/it][A
+
+Table-wired Predict:  29%|██▉       | 24/82 [00:27<00:51,  1.13it/s][A
+
+Table-wired Predict:  30%|███       | 25/82 [00:28<00:45,  1.24it/s][A
+
+Table-wired Predict:  32%|███▏      | 26/82 [00:29<00:53,  1.05it/s][A
+
+Table-wired Predict:  33%|███▎      | 27/82 [00:30<00:46,  1.19it/s][A
+
+Table-wired Predict:  34%|███▍      | 28/82 [00:31<01:01,  1.13s/it][A
+
+Table-wired Predict:  35%|███▌      | 29/82 [00:33<01:01,  1.15s/it][A
+
+Table-wired Predict:  37%|███▋      | 30/82 [00:34<00:55,  1.08s/it][A
+
+Table-wired Predict:  38%|███▊      | 31/82 [00:34<00:46,  1.11it/s][A
+
+Table-wired Predict:  39%|███▉      | 32/82 [00:34<00:36,  1.38it/s][A
+
+Table-wired Predict:  40%|████      | 33/82 [00:35<00:35,  1.39it/s][A
+
+Table-wired Predict:  41%|████▏     | 34/82 [00:35<00:29,  1.61it/s][A
+
+Table-wired Predict:  43%|████▎     | 35/82 [00:36<00:30,  1.55it/s][A
+
+Table-wired Predict:  44%|████▍     | 36/82 [00:37<00:26,  1.74it/s][A
+
+Table-wired Predict:  45%|████▌     | 37/82 [00:37<00:23,  1.92it/s][A
+
+Table-wired Predict:  46%|████▋     | 38/82 [00:38<00:25,  1.74it/s][A
+
+Table-wired Predict:  48%|████▊     | 39/82 [00:38<00:21,  2.02it/s][A
+
+Table-wired Predict:  49%|████▉     | 40/82 [00:39<00:24,  1.71it/s][A
+
+Table-wired Predict:  50%|█████     | 41/82 [00:40<00:27,  1.48it/s][A
+
+Table-wired Predict:  51%|█████     | 42/82 [00:40<00:23,  1.69it/s][A
+
+Table-wired Predict:  52%|█████▏    | 43/82 [00:41<00:23,  1.66it/s][A
+
+Table-wired Predict:  54%|█████▎    | 44/82 [00:41<00:19,  1.96it/s][A
+
+Table-wired Predict:  55%|█████▍    | 45/82 [00:42<00:20,  1.77it/s][A
+
+Table-wired Predict:  56%|█████▌    | 46/82 [00:43<00:27,  1.32it/s][A
+
+Table-wired Predict:  57%|█████▋    | 47/82 [00:43<00:22,  1.55it/s][A
+
+Table-wired Predict:  59%|█████▊    | 48/82 [00:44<00:21,  1.58it/s][A
+
+Table-wired Predict:  60%|█████▉    | 49/82 [00:44<00:18,  1.78it/s][A
+
+Table-wired Predict:  61%|██████    | 50/82 [00:45<00:18,  1.74it/s][A
+
+Table-wired Predict:  62%|██████▏   | 51/82 [00:47<00:31,  1.00s/it][A
+
+Table-wired Predict:  63%|██████▎   | 52/82 [00:49<00:41,  1.40s/it][A
+
+Table-wired Predict:  65%|██████▍   | 53/82 [00:51<00:43,  1.51s/it][A
+
+Table-wired Predict:  66%|██████▌   | 54/82 [00:53<00:45,  1.63s/it][A
+
+Table-wired Predict:  67%|██████▋   | 55/82 [00:55<00:44,  1.66s/it][A
+
+Table-wired Predict:  68%|██████▊   | 56/82 [00:57<00:46,  1.78s/it][A
+
+Table-wired Predict:  70%|██████▉   | 57/82 [00:59<00:49,  2.00s/it][A
+
+Table-wired Predict:  71%|███████   | 58/82 [01:01<00:50,  2.09s/it][A
+
+Table-wired Predict:  72%|███████▏  | 59/82 [01:04<00:50,  2.18s/it][A
+
+Table-wired Predict:  73%|███████▎  | 60/82 [01:06<00:48,  2.19s/it][A
+
+Table-wired Predict:  74%|███████▍  | 61/82 [01:08<00:46,  2.22s/it][A
+
+Table-wired Predict:  76%|███████▌  | 62/82 [01:11<00:44,  2.22s/it][A
+
+Table-wired Predict:  77%|███████▋  | 63/82 [01:12<00:37,  2.00s/it][A
+
+Table-wired Predict:  78%|███████▊  | 64/82 [01:13<00:30,  1.70s/it][A
+
+Table-wired Predict:  79%|███████▉  | 65/82 [01:15<00:27,  1.64s/it][A
+
+Table-wired Predict:  80%|████████  | 66/82 [01:16<00:26,  1.66s/it][A
+
+Table-wired Predict:  82%|████████▏ | 67/82 [01:16<00:17,  1.19s/it][A
+
+Table-wired Predict:  83%|████████▎ | 68/82 [01:18<00:17,  1.28s/it][A
+
+Table-wired Predict:  84%|████████▍ | 69/82 [01:18<00:14,  1.08s/it][A
+
+Table-wired Predict:  85%|████████▌ | 70/82 [01:19<00:12,  1.02s/it][A
+
+Table-wired Predict:  87%|████████▋ | 71/82 [01:21<00:12,  1.16s/it][A
+
+Table-wired Predict:  88%|████████▊ | 72/82 [01:21<00:09,  1.06it/s][A
+
+Table-wired Predict:  89%|████████▉ | 73/82 [01:22<00:08,  1.08it/s][A
+
+Table-wired Predict:  90%|█████████ | 74/82 [01:22<00:05,  1.35it/s][A
+
+Table-wired Predict:  91%|█████████▏| 75/82 [01:24<00:07,  1.12s/it][A
+
+Table-wired Predict:  93%|█████████▎| 76/82 [01:25<00:06,  1.05s/it][A
+
+Table-wired Predict:  94%|█████████▍| 77/82 [01:26<00:04,  1.09it/s][A
+
+Table-wired Predict:  95%|█████████▌| 78/82 [01:27<00:03,  1.21it/s][A
+
+Table-wired Predict:  96%|█████████▋| 79/82 [01:28<00:03,  1.09s/it][A
+
+Table-wired Predict:  98%|█████████▊| 80/82 [01:31<00:03,  1.51s/it][A
+
+Table-wired Predict:  99%|█████████▉| 81/82 [01:33<00:01,  1.84s/it][A
+
+Table-wired Predict: 100%|██████████| 82/82 [01:36<00:00,  2.13s/it][A
+Table-wired Predict: 100%|██████████| 82/82 [01:36<00:00,  1.18s/it]
+
+
+OCR-det ch:   0%|          | 0/445 [00:00<?, ?it/s][A
+
+OCR-det ch:  14%|█▍        | 64/445 [00:01<00:09, 38.98it/s][A
+
+OCR-det ch:  20%|██        | 89/445 [00:01<00:07, 50.81it/s][A
+
+OCR-det ch:  23%|██▎       | 104/445 [00:02<00:06, 53.13it/s][A
+
+OCR-det ch:  44%|████▍     | 195/445 [00:02<00:01, 127.21it/s][A
+
+OCR-det ch:  49%|████▊     | 216/445 [00:02<00:01, 128.92it/s][A
+
+OCR-det ch:  54%|█████▍    | 242/445 [00:02<00:01, 111.14it/s][A
+
+OCR-det ch:  59%|█████▊    | 261/445 [00:02<00:01, 112.47it/s][A
+
+OCR-det ch:  63%|██████▎   | 280/445 [00:03<00:01, 118.96it/s][A
+
+OCR-det ch:  68%|██████▊   | 304/445 [00:03<00:01, 132.96it/s][A
+
+OCR-det ch:  73%|███████▎  | 327/445 [00:03<00:00, 129.30it/s][A
+
+OCR-det ch:  78%|███████▊  | 345/445 [00:03<00:00, 107.55it/s][A
+
+OCR-det ch:  81%|████████  | 359/445 [00:03<00:00, 100.01it/s][A
+
+OCR-det ch:  84%|████████▍ | 373/445 [00:04<00:00, 86.82it/s] [A
+
+OCR-det ch:  87%|████████▋ | 385/445 [00:04<00:00, 78.88it/s][A
+
+OCR-det ch:  92%|█████████▏| 411/445 [00:04<00:00, 98.66it/s][A
+
+OCR-det ch:  98%|█████████▊| 437/445 [00:04<00:00, 122.44it/s][A
+OCR-det ch: 100%|██████████| 445/445 [00:04<00:00, 91.32it/s] 
+
+
+Seal Predict: 0it [00:00, ?it/s][A
+Seal Predict: 0it [00:00, ?it/s]
+
+Processing pages:  21%|██        | 66/311 [00:04<00:15, 16.09it/s]
+Processing pages:  22%|██▏       | 68/311 [00:04<00:14, 16.46it/s]
+Processing pages:  23%|██▎       | 70/311 [00:04<00:14, 16.28it/s]
+Processing pages:  23%|██▎       | 72/311 [00:04<00:14, 16.39it/s]
+Processing pages:  24%|██▍       | 74/311 [00:04<00:14, 15.92it/s]
+Processing pages:  24%|██▍       | 76/311 [00:04<00:15, 15.52it/s]
+Processing pages:  25%|██▌       | 78/311 [00:05<00:14, 15.64it/s]
+Processing pages:  26%|██▌       | 80/311 [00:05<00:14, 15.61it/s]
+Processing pages:  26%|██▋       | 82/311 [00:05<00:14, 15.28it/s]
+Processing pages:  27%|██▋       | 84/311 [00:05<00:14, 15.72it/s]
+Processing pages:  28%|██▊       | 86/311 [00:05<00:13, 16.07it/s]
+Processing pages:  28%|██▊       | 88/311 [00:05<00:13, 16.38it/s]
+Processing pages:  29%|██▉       | 90/311 [00:05<00:13, 16.67it/s]
+Processing pages:  30%|██▉       | 92/311 [00:05<00:13, 16.65it/s]
+Processing pages:  30%|███       | 94/311 [00:06<00:13, 15.97it/s]
+Processing pages:  31%|███       | 96/311 [00:06<00:13, 16.33it/s]
+Processing pages:  32%|███▏      | 99/311 [00:06<00:12, 17.46it/s]
+Processing pages:  32%|███▏      | 101/311 [00:06<00:12, 16.34it/s]
+Processing pages:  33%|███▎      | 103/311 [00:06<00:12, 16.12it/s]
+Processing pages:  34%|███▍      | 105/311 [00:06<00:12, 16.71it/s]
+Processing pages:  34%|███▍      | 107/311 [00:06<00:12, 16.90it/s]
+Processing pages:  35%|███▌      | 109/311 [00:06<00:12, 16.70it/s]
+Processing pages:  36%|███▌      | 111/311 [00:06<00:11, 17.26it/s]
+Processing pages:  36%|███▋      | 113/311 [00:07<00:11, 17.24it/s]
+Processing pages:  37%|███▋      | 115/311 [00:07<00:11, 17.57it/s]
+Processing pages:  38%|███▊      | 117/311 [00:07<00:17, 11.05it/s]
+Processing pages:  38%|███▊      | 119/311 [00:07<00:15, 12.26it/s]
+Processing pages:  39%|███▉      | 121/311 [00:07<00:14, 13.40it/s]
+Processing pages:  40%|███▉      | 123/311 [00:07<00:13, 14.29it/s]
+Processing pages:  40%|████      | 125/311 [00:08<00:12, 15.04it/s]
+Processing pages:  41%|████      | 127/311 [00:08<00:11, 15.50it/s]2026-06-20 17:11:15.611 | INFO     | mineru.backend.pipeline.pipeline_analyze:doc_analyze_streaming:264 - Pipeline processing window batch 3/5: 192/311 pages, batch_pages=64, doc_slices=doc0:129-192
+2026-06-20 17:11:15.611 | INFO     | mineru.backend.pipeline.pipeline_analyze:batch_image_analyze:364 - GPU Memory: 24 GB, Batch Ratio: 8. 
+
+
+Layout Predict:   0%|          | 0/64 [00:00<?, ?it/s][A
+
+Layout Predict:  12%|█▎        | 8/64 [00:00<00:01, 29.71it/s][A
+
+Layout Predict:  25%|██▌       | 16/64 [00:00<00:01, 28.14it/s][A
+
+Layout Predict:  38%|███▊      | 24/64 [00:00<00:01, 27.26it/s][A
+
+Layout Predict:  50%|█████     | 32/64 [00:01<00:01, 27.08it/s][A
+
+Layout Predict:  62%|██████▎   | 40/64 [00:01<00:00, 27.19it/s][A
+
+Layout Predict:  75%|███████▌  | 48/64 [00:01<00:00, 26.81it/s][A
+
+Layout Predict:  88%|████████▊ | 56/64 [00:02<00:00, 26.50it/s][A
+
+Layout Predict: 100%|██████████| 64/64 [00:02<00:00, 26.88it/s][A
+Layout Predict: 100%|██████████| 64/64 [00:02<00:00, 27.08it/s]
+
+
+Table orientation det:   0%|          | 0/80 [00:00<?, ?it/s][A
+
+Table orientation det:  10%|█         | 8/80 [00:01<00:11,  6.30it/s][A
+
+Table orientation det:  12%|█▎        | 10/80 [00:01<00:09,  7.69it/s][A
+
+Table orientation det:  20%|██        | 16/80 [00:01<00:04, 12.95it/s][A
+
+Table orientation det:  24%|██▍       | 19/80 [00:01<00:04, 14.11it/s][A
+
+Table orientation det:  28%|██▊       | 22/80 [00:01<00:03, 15.96it/s][A
+
+Table orientation det:  34%|███▍      | 27/80 [00:02<00:02, 19.31it/s][A
+
+Table orientation det:  40%|████      | 32/80 [00:02<00:02, 21.98it/s][A
+
+Table orientation det:  52%|█████▎    | 42/80 [00:02<00:01, 27.55it/s][A
+
+Table orientation det:  57%|█████▊    | 46/80 [00:02<00:01, 27.55it/s][A
+
+Table orientation det:  69%|██████▉   | 55/80 [00:02<00:00, 33.42it/s][A
+
+Table orientation det:  76%|███████▋  | 61/80 [00:02<00:00, 37.26it/s][A
+
+Table orientation det:  81%|████████▏ | 65/80 [00:03<00:00, 32.80it/s][A
+
+Table orientation det:  88%|████████▊ | 70/80 [00:03<00:00, 35.68it/s][A
+
+Table orientation det:  92%|█████████▎| 74/80 [00:03<00:00, 35.18it/s][A
+
+Table orientation det:  98%|█████████▊| 78/80 [00:03<00:00, 27.66it/s][A
+
+Table orientation score: 100%|██████████| 80/80 [00:03<00:00, 27.66it/s][A
+
+Table orientation score: 100%|██████████| 80/80 [00:03<00:00, 27.66it/s][A
+
+Table orientation: 100%|██████████| 80/80 [00:03<00:00, 27.66it/s]      [A
+
+Table orientation: 100%|██████████| 80/80 [00:03<00:00, 27.66it/s][A
+Table orientation: 100%|██████████| 80/80 [00:03<00:00, 21.66it/s]
+
+
+Table-ocr det:   0%|          | 0/80 [00:00<?, ?it/s][A
+
+Table-ocr det:  10%|█         | 8/80 [00:02<00:24,  2.93it/s][A
+
+Table-ocr det:  16%|█▋        | 13/80 [00:02<00:12,  5.25it/s][A
+
+Table-ocr det:  22%|██▎       | 18/80 [00:02<00:07,  8.14it/s][A
+
+Table-ocr det:  28%|██▊       | 22/80 [00:03<00:05, 10.51it/s][A
+
+Table-ocr det:  35%|███▌      | 28/80 [00:03<00:03, 15.47it/s][A
+
+Table-ocr det:  40%|████      | 32/80 [00:03<00:02, 18.57it/s][A
+Processing pages:  41%|████      | 128/311 [00:22<00:11, 15.50it/s]
+
+Table-ocr det:  52%|█████▎    | 42/80 [00:03<00:01, 25.75it/s][A
+
+Table-ocr det:  62%|██████▎   | 50/80 [00:03<00:00, 32.67it/s][A
+
+Table-ocr det:  76%|███████▋  | 61/80 [00:03<00:00, 43.55it/s][A
+
+Table-ocr det:  85%|████████▌ | 68/80 [00:03<00:00, 47.46it/s][A
+
+Table-ocr det:  92%|█████████▎| 74/80 [00:04<00:00, 48.66it/s][A
+
+Table-ocr det: 100%|██████████| 80/80 [00:04<00:00, 44.44it/s][A
+Table-ocr det: 100%|██████████| 80/80 [00:04<00:00, 19.02it/s]
+
+
+Table-ocr rec ch:   0%|          | 0/5685 [00:00<?, ?it/s][A
+
+Table-ocr rec ch:   1%|▏         | 72/5685 [00:00<00:08, 662.85it/s][A
+
+Table-ocr rec ch:   3%|▎         | 144/5685 [00:00<00:08, 678.03it/s][A
+
+Table-ocr rec ch:   4%|▍         | 216/5685 [00:00<00:08, 682.78it/s][A
+
+Table-ocr rec ch:   5%|▌         | 288/5685 [00:00<00:07, 684.02it/s][A
+
+Table-ocr rec ch:   6%|▋         | 360/5685 [00:00<00:07, 686.72it/s][A
+
+Table-ocr rec ch:   8%|▊         | 432/5685 [00:00<00:07, 684.91it/s][A
+
+Table-ocr rec ch:   9%|▉         | 504/5685 [00:00<00:07, 685.92it/s][A
+
+Table-ocr rec ch:  10%|█         | 576/5685 [00:00<00:07, 686.27it/s][A
+
+Table-ocr rec ch:  11%|█▏        | 648/5685 [00:00<00:07, 685.47it/s][A
+
+Table-ocr rec ch:  13%|█▎        | 720/5685 [00:01<00:07, 685.51it/s][A
+
+Table-ocr rec ch:  14%|█▍        | 792/5685 [00:01<00:07, 685.38it/s][A
+
+Table-ocr rec ch:  15%|█▌        | 864/5685 [00:01<00:07, 685.42it/s][A
+
+Table-ocr rec ch:  16%|█▋        | 936/5685 [00:01<00:06, 682.78it/s][A
+
+Table-ocr rec ch:  18%|█▊        | 1008/5685 [00:01<00:06, 682.92it/s][A
+
+Table-ocr rec ch:  19%|█▉        | 1080/5685 [00:01<00:06, 680.53it/s][A
+
+Table-ocr rec ch:  20%|██        | 1152/5685 [00:01<00:06, 681.30it/s][A
+
+Table-ocr rec ch:  22%|██▏       | 1224/5685 [00:01<00:06, 682.46it/s][A
+
+Table-ocr rec ch:  23%|██▎       | 1296/5685 [00:01<00:06, 683.18it/s][A
+
+Table-ocr rec ch:  24%|██▍       | 1368/5685 [00:02<00:06, 683.68it/s][A
+
+Table-ocr rec ch:  25%|██▌       | 1440/5685 [00:02<00:06, 683.85it/s][A
+
+Table-ocr rec ch:  27%|██▋       | 1512/5685 [00:02<00:06, 680.13it/s][A
+
+Table-ocr rec ch:  28%|██▊       | 1584/5685 [00:02<00:06, 678.61it/s][A
+
+Table-ocr rec ch:  29%|██▉       | 1656/5685 [00:02<00:05, 678.98it/s][A
+
+Table-ocr rec ch:  30%|███       | 1728/5685 [00:02<00:05, 679.74it/s][A
+
+Table-ocr rec ch:  32%|███▏      | 1800/5685 [00:02<00:05, 677.52it/s][A
+
+Table-ocr rec ch:  33%|███▎      | 1872/5685 [00:02<00:05, 678.81it/s][A
+
+Table-ocr rec ch:  34%|███▍      | 1944/5685 [00:02<00:05, 678.65it/s][A
+
+Table-ocr rec ch:  35%|███▌      | 2016/5685 [00:02<00:05, 679.60it/s][A
+
+Table-ocr rec ch:  37%|███▋      | 2088/5685 [00:03<00:05, 680.10it/s][A
+
+Table-ocr rec ch:  38%|███▊      | 2160/5685 [00:03<00:05, 679.89it/s][A
+
+Table-ocr rec ch:  39%|███▉      | 2232/5685 [00:03<00:05, 679.85it/s][A
+
+Table-ocr rec ch:  41%|████      | 2304/5685 [00:03<00:04, 679.34it/s][A
+
+Table-ocr rec ch:  42%|████▏     | 2376/5685 [00:03<00:04, 678.25it/s][A
+
+Table-ocr rec ch:  43%|████▎     | 2448/5685 [00:03<00:04, 669.09it/s][A
+
+Table-ocr rec ch:  44%|████▍     | 2520/5685 [00:03<00:04, 669.85it/s][A
+
+Table-ocr rec ch:  46%|████▌     | 2592/5685 [00:03<00:04, 670.63it/s][A
+
+Table-ocr rec ch:  47%|████▋     | 2664/5685 [00:03<00:04, 670.33it/s][A
+
+Table-ocr rec ch:  48%|████▊     | 2736/5685 [00:04<00:04, 671.66it/s][A
+
+Table-ocr rec ch:  49%|████▉     | 2808/5685 [00:04<00:04, 672.35it/s][A
+
+Table-ocr rec ch:  51%|█████     | 2880/5685 [00:04<00:04, 672.80it/s][A
+
+Table-ocr rec ch:  52%|█████▏    | 2952/5685 [00:04<00:04, 672.91it/s][A
+
+Table-ocr rec ch:  53%|█████▎    | 3024/5685 [00:04<00:03, 671.48it/s][A
+
+Table-ocr rec ch:  54%|█████▍    | 3096/5685 [00:04<00:03, 664.28it/s][A
+
+Table-ocr rec ch:  56%|█████▌    | 3168/5685 [00:04<00:03, 662.23it/s][A
+
+Table-ocr rec ch:  57%|█████▋    | 3240/5685 [00:04<00:03, 663.29it/s][A
+
+Table-ocr rec ch:  58%|█████▊    | 3312/5685 [00:04<00:03, 663.94it/s][A
+
+Table-ocr rec ch:  60%|█████▉    | 3384/5685 [00:04<00:03, 664.57it/s][A
+
+Table-ocr rec ch:  61%|██████    | 3456/5685 [00:05<00:03, 666.42it/s][A
+
+Table-ocr rec ch:  62%|██████▏   | 3528/5685 [00:05<00:03, 667.42it/s][A
+
+Table-ocr rec ch:  63%|██████▎   | 3600/5685 [00:05<00:03, 667.97it/s][A
+
+Table-ocr rec ch:  65%|██████▍   | 3672/5685 [00:05<00:03, 668.03it/s][A
+
+Table-ocr rec ch:  66%|██████▌   | 3744/5685 [00:05<00:02, 668.75it/s][A
+
+Table-ocr rec ch:  67%|██████▋   | 3816/5685 [00:05<00:02, 663.67it/s][A
+
+Table-ocr rec ch:  68%|██████▊   | 3888/5685 [00:05<00:02, 656.57it/s][A
+
+Table-ocr rec ch:  70%|██████▉   | 3960/5685 [00:05<00:02, 658.48it/s][A
+
+Table-ocr rec ch:  71%|███████   | 4032/5685 [00:05<00:02, 659.51it/s][A
+
+Table-ocr rec ch:  72%|███████▏  | 4104/5685 [00:06<00:02, 660.63it/s][A
+
+Table-ocr rec ch:  73%|███████▎  | 4176/5685 [00:06<00:02, 661.52it/s][A
+
+Table-ocr rec ch:  75%|███████▍  | 4248/5685 [00:06<00:02, 662.13it/s][A
+
+Table-ocr rec ch:  76%|███████▌  | 4320/5685 [00:06<00:02, 661.96it/s][A
+
+Table-ocr rec ch:  77%|███████▋  | 4392/5685 [00:06<00:01, 664.08it/s][A
+
+Table-ocr rec ch:  79%|███████▊  | 4464/5685 [00:06<00:01, 662.71it/s][A
+
+Table-ocr rec ch:  80%|███████▉  | 4536/5685 [00:06<00:01, 663.95it/s][A
+
+Table-ocr rec ch:  81%|████████  | 4608/5685 [00:06<00:01, 657.90it/s][A
+
+Table-ocr rec ch:  82%|████████▏ | 4674/5685 [00:06<00:01, 658.48it/s][A
+
+Table-ocr rec ch:  83%|████████▎ | 4740/5685 [00:07<00:01, 658.60it/s][A
+
+Table-ocr rec ch:  85%|████████▍ | 4806/5685 [00:07<00:01, 658.13it/s][A
+
+Table-ocr rec ch:  86%|████████▌ | 4872/5685 [00:07<00:01, 658.07it/s][A
+
+Table-ocr rec ch:  87%|████████▋ | 4938/5685 [00:07<00:01, 657.73it/s][A
+
+Table-ocr rec ch:  88%|████████▊ | 5004/5685 [00:07<00:01, 654.69it/s][A
+
+Table-ocr rec ch:  89%|████████▉ | 5070/5685 [00:07<00:00, 648.36it/s][A
+
+Table-ocr rec ch:  90%|█████████ | 5136/5685 [00:07<00:00, 643.31it/s][A
+
+Table-ocr rec ch:  92%|█████████▏| 5202/5685 [00:07<00:00, 639.44it/s][A
+
+Table-ocr rec ch:  93%|█████████▎| 5268/5685 [00:07<00:00, 564.04it/s][A
+
+Table-ocr rec ch:  94%|█████████▎| 5328/5685 [00:08<00:00, 447.26it/s][A
+
+Table-ocr rec ch:  95%|█████████▍| 5382/5685 [00:08<00:00, 400.96it/s][A
+
+Table-ocr rec ch:  96%|█████████▌| 5430/5685 [00:08<00:00, 374.49it/s][A
+
+Table-ocr rec ch:  96%|█████████▋| 5484/5685 [00:08<00:00, 406.94it/s][A
+
+Table-ocr rec ch:  97%|█████████▋| 5532/5685 [00:08<00:00, 351.22it/s][A
+
+Table-ocr rec ch:  98%|█████████▊| 5574/5685 [00:08<00:00, 317.01it/s][A
+
+Table-ocr rec ch:  99%|█████████▊| 5610/5685 [00:09<00:00, 300.32it/s][A
+
+Table-ocr rec ch:  99%|█████████▉| 5646/5685 [00:09<00:00, 269.29it/s][A
+
+Table-ocr rec ch: 100%|█████████▉| 5676/5685 [00:09<00:00, 244.48it/s][A
+Table-ocr rec ch: 100%|██████████| 5685/5685 [00:09<00:00, 602.05it/s]
+
+
+Table-wireless Predict:   0%|          | 0/80 [00:00<?, ?it/s][A
+
+Table-wireless Predict:   5%|▌         | 4/80 [00:01<00:20,  3.67it/s][A
+
+Table-wireless Predict:  10%|█         | 8/80 [00:02<00:19,  3.63it/s][A
+
+Table-wireless Predict:  15%|█▌        | 12/80 [00:03<00:20,  3.25it/s][A
+
+Table-wireless Predict:  20%|██        | 16/80 [00:04<00:18,  3.39it/s][A
+
+Table-wireless Predict:  25%|██▌       | 20/80 [00:05<00:18,  3.27it/s][A
+
+Table-wireless Predict:  30%|███       | 24/80 [00:06<00:14,  3.82it/s][A
+
+Table-wireless Predict:  35%|███▌      | 28/80 [00:07<00:14,  3.54it/s][A
+
+Table-wireless Predict:  40%|████      | 32/80 [00:08<00:13,  3.67it/s][A
+
+Table-wireless Predict:  45%|████▌     | 36/80 [00:09<00:10,  4.13it/s][A
+
+Table-wireless Predict:  50%|█████     | 40/80 [00:10<00:08,  4.51it/s][A
+
+Table-wireless Predict:  55%|█████▌    | 44/80 [00:11<00:09,  3.84it/s][A
+
+Table-wireless Predict:  60%|██████    | 48/80 [00:12<00:08,  3.78it/s][A
+
+Table-wireless Predict:  65%|██████▌   | 52/80 [00:13<00:07,  3.73it/s][A
+
+Table-wireless Predict:  70%|███████   | 56/80 [00:15<00:06,  3.70it/s][A
+
+Table-wireless Predict:  75%|███████▌  | 60/80 [00:15<00:05,  3.90it/s][A
+
+Table-wireless Predict:  80%|████████  | 64/80 [00:17<00:04,  3.81it/s][A
+
+Table-wireless Predict:  85%|████████▌ | 68/80 [00:18<00:03,  3.67it/s][A
+
+Table-wireless Predict:  90%|█████████ | 72/80 [00:19<00:02,  3.87it/s][A
+
+Table-wireless Predict:  95%|█████████▌| 76/80 [00:20<00:01,  3.69it/s][A
+
+Table-wireless Predict: 100%|██████████| 80/80 [00:21<00:00,  3.76it/s][A
+Table-wireless Predict: 100%|██████████| 80/80 [00:21<00:00,  3.74it/s]
+
+
+Table-wired Predict:   0%|          | 0/80 [00:00<?, ?it/s][A
+
+Table-wired Predict:   1%|▏         | 1/80 [00:05<07:29,  5.69s/it][A
+
+Table-wired Predict:   2%|▎         | 2/80 [00:07<04:16,  3.29s/it][A
+
+Table-wired Predict:   4%|▍         | 3/80 [00:08<02:56,  2.29s/it][A
+
+Table-wired Predict:   5%|▌         | 4/80 [00:10<03:03,  2.41s/it][A
+
+Table-wired Predict:   6%|▋         | 5/80 [00:13<02:57,  2.37s/it][A
+
+Table-wired Predict:   8%|▊         | 6/80 [00:14<02:15,  1.83s/it][A
+
+Table-wired Predict:   9%|▉         | 7/80 [00:16<02:20,  1.93s/it][A
+
+Table-wired Predict:  10%|█         | 8/80 [00:17<02:01,  1.69s/it][A
+
+Table-wired Predict:  11%|█▏        | 9/80 [00:19<02:09,  1.82s/it][A
+
+Table-wired Predict:  12%|█▎        | 10/80 [00:21<02:17,  1.97s/it][A
+
+Table-wired Predict:  14%|█▍        | 11/80 [00:24<02:27,  2.13s/it][A
+
+Table-wired Predict:  15%|█▌        | 12/80 [00:26<02:26,  2.15s/it][A
+
+Table-wired Predict:  16%|█▋        | 13/80 [00:27<02:00,  1.80s/it][A
+
+Table-wired Predict:  18%|█▊        | 14/80 [00:28<01:52,  1.71s/it][A
+
+Table-wired Predict:  19%|█▉        | 15/80 [00:30<01:51,  1.71s/it][A
+
+Table-wired Predict:  20%|██        | 16/80 [00:32<01:58,  1.86s/it][A
+
+Table-wired Predict:  21%|██▏       | 17/80 [00:33<01:29,  1.42s/it][A
+
+Table-wired Predict:  22%|██▎       | 18/80 [00:35<01:46,  1.71s/it][A
+
+Table-wired Predict:  24%|██▍       | 19/80 [00:37<01:53,  1.86s/it][A
+
+Table-wired Predict:  25%|██▌       | 20/80 [00:40<01:59,  1.99s/it][A
+
+Table-wired Predict:  26%|██▋       | 21/80 [00:40<01:33,  1.58s/it][A
+
+Table-wired Predict:  28%|██▊       | 22/80 [00:41<01:14,  1.28s/it][A
+
+Table-wired Predict:  29%|██▉       | 23/80 [00:42<01:04,  1.13s/it][A
+
+Table-wired Predict:  30%|███       | 24/80 [00:42<00:52,  1.06it/s][A
+
+Table-wired Predict:  31%|███▏      | 25/80 [00:43<00:57,  1.05s/it][A
+
+Table-wired Predict:  32%|███▎      | 26/80 [00:46<01:13,  1.37s/it][A
+
+Table-wired Predict:  34%|███▍      | 27/80 [00:47<01:17,  1.46s/it][A
+
+Table-wired Predict:  35%|███▌      | 28/80 [00:48<01:01,  1.18s/it][A
+
+Table-wired Predict:  36%|███▋      | 29/80 [00:48<00:52,  1.03s/it][A
+
+Table-wired Predict:  38%|███▊      | 30/80 [00:49<00:45,  1.11it/s][A
+
+Table-wired Predict:  39%|███▉      | 31/80 [00:51<01:04,  1.32s/it][A
+
+Table-wired Predict:  40%|████      | 32/80 [00:53<01:04,  1.34s/it][A
+
+Table-wired Predict:  41%|████▏     | 33/80 [00:53<00:51,  1.09s/it][A
+
+Table-wired Predict:  42%|████▎     | 34/80 [00:54<00:49,  1.07s/it][A
+
+Table-wired Predict:  44%|████▍     | 35/80 [00:55<00:46,  1.04s/it][A
+
+Table-wired Predict:  45%|████▌     | 36/80 [00:56<00:41,  1.06it/s][A
+
+Table-wired Predict:  46%|████▋     | 37/80 [00:56<00:33,  1.28it/s][A
+
+Table-wired Predict:  48%|████▊     | 38/80 [00:57<00:34,  1.23it/s][A
+
+Table-wired Predict:  49%|████▉     | 39/80 [00:58<00:30,  1.34it/s][A
+
+Table-wired Predict:  50%|█████     | 40/80 [00:59<00:29,  1.36it/s][A
+
+Table-wired Predict:  51%|█████▏    | 41/80 [00:59<00:29,  1.32it/s][A
+
+Table-wired Predict:  52%|█████▎    | 42/80 [01:02<00:49,  1.31s/it][A
+
+Table-wired Predict:  54%|█████▍    | 43/80 [01:03<00:48,  1.31s/it][A
+
+Table-wired Predict:  55%|█████▌    | 44/80 [01:04<00:44,  1.25s/it][A
+
+Table-wired Predict:  56%|█████▋    | 45/80 [01:05<00:40,  1.17s/it][A
+
+Table-wired Predict:  57%|█████▊    | 46/80 [01:06<00:31,  1.10it/s][A
+
+Table-wired Predict:  59%|█████▉    | 47/80 [01:06<00:23,  1.38it/s][A
+
+Table-wired Predict:  60%|██████    | 48/80 [01:09<00:41,  1.29s/it][A
+
+Table-wired Predict:  61%|██████▏   | 49/80 [01:11<00:51,  1.65s/it][A
+
+Table-wired Predict:  62%|██████▎   | 50/80 [01:12<00:41,  1.40s/it][A
+
+Table-wired Predict:  64%|██████▍   | 51/80 [01:13<00:42,  1.45s/it][A
+
+Table-wired Predict:  65%|██████▌   | 52/80 [01:15<00:40,  1.44s/it][A
+
+Table-wired Predict:  66%|██████▋   | 53/80 [01:17<00:41,  1.55s/it][A
+
+Table-wired Predict:  68%|██████▊   | 54/80 [01:19<00:46,  1.81s/it][A
+
+Table-wired Predict:  69%|██████▉   | 55/80 [01:20<00:35,  1.41s/it][A
+
+Table-wired Predict:  70%|███████   | 56/80 [01:22<00:40,  1.68s/it][A
+
+Table-wired Predict:  71%|███████▏  | 57/80 [01:24<00:40,  1.75s/it][A
+
+Table-wired Predict:  72%|███████▎  | 58/80 [01:24<00:30,  1.37s/it][A
+
+Table-wired Predict:  74%|███████▍  | 59/80 [01:25<00:22,  1.08s/it][A
+
+Table-wired Predict:  75%|███████▌  | 60/80 [01:27<00:27,  1.39s/it][A
+
+Table-wired Predict:  76%|███████▋  | 61/80 [01:29<00:32,  1.69s/it][A
+
+Table-wired Predict:  78%|███████▊  | 62/80 [01:30<00:28,  1.57s/it][A
+
+Table-wired Predict:  79%|███████▉  | 63/80 [01:31<00:22,  1.34s/it][A
+
+Table-wired Predict:  80%|████████  | 64/80 [01:34<00:27,  1.69s/it][A
+
+Table-wired Predict:  81%|████████▏ | 65/80 [01:36<00:29,  1.96s/it][A
+
+Table-wired Predict:  82%|████████▎ | 66/80 [01:37<00:22,  1.58s/it][A
+
+Table-wired Predict:  84%|████████▍ | 67/80 [01:39<00:22,  1.74s/it][A
+
+Table-wired Predict:  85%|████████▌ | 68/80 [01:40<00:18,  1.55s/it][A
+
+Table-wired Predict:  86%|████████▋ | 69/80 [01:42<00:18,  1.66s/it][A
+
+Table-wired Predict:  88%|████████▊ | 70/80 [01:44<00:17,  1.75s/it][A
+
+Table-wired Predict:  89%|████████▉ | 71/80 [01:45<00:14,  1.59s/it][A
+
+Table-wired Predict:  90%|█████████ | 72/80 [01:46<00:09,  1.24s/it][A
+
+Table-wired Predict:  91%|█████████▏| 73/80 [01:48<00:11,  1.61s/it][A
+
+Table-wired Predict:  92%|█████████▎| 74/80 [01:49<00:08,  1.43s/it][A
+
+Table-wired Predict:  94%|█████████▍| 75/80 [01:52<00:08,  1.75s/it][A
+
+Table-wired Predict:  95%|█████████▌| 76/80 [01:54<00:07,  1.92s/it][A
+
+Table-wired Predict:  96%|█████████▋| 77/80 [01:56<00:06,  2.03s/it][A
+
+Table-wired Predict:  98%|█████████▊| 78/80 [01:58<00:03,  1.96s/it][A
+
+Table-wired Predict:  99%|█████████▉| 79/80 [01:59<00:01,  1.55s/it][A
+
+Table-wired Predict: 100%|██████████| 80/80 [02:00<00:00,  1.35s/it][A
+Table-wired Predict: 100%|██████████| 80/80 [02:00<00:00,  1.50s/it]
+
+
+OCR-det ch:   0%|          | 0/368 [00:00<?, ?it/s][A
+
+OCR-det ch:  17%|█▋        | 64/368 [00:01<00:08, 33.89it/s][A
+
+OCR-det ch:  29%|██▊       | 105/368 [00:02<00:04, 58.37it/s][A
+
+OCR-det ch:  40%|████      | 148/368 [00:02<00:02, 83.84it/s][A
+
+OCR-det ch:  51%|█████     | 188/368 [00:02<00:01, 113.23it/s][A
+
+OCR-det ch:  58%|█████▊    | 214/368 [00:02<00:01, 118.31it/s][A
+
+OCR-det ch:  64%|██████▍   | 236/368 [00:02<00:01, 102.74it/s][A
+
+OCR-det ch:  69%|██████▉   | 253/368 [00:03<00:01, 99.91it/s] [A
+
+OCR-det ch:  75%|███████▍  | 275/368 [00:03<00:00, 103.70it/s][A
+
+OCR-det ch:  79%|███████▉  | 290/368 [00:03<00:00, 104.83it/s][A
+
+OCR-det ch:  88%|████████▊ | 325/368 [00:03<00:00, 129.30it/s][A
+
+OCR-det ch:  92%|█████████▏| 340/368 [00:03<00:00, 106.25it/s][A
+
+OCR-det ch:  96%|█████████▌| 353/368 [00:04<00:00, 78.13it/s] [A
+
+OCR-det ch:  99%|█████████▉| 364/368 [00:04<00:00, 61.23it/s][A
+OCR-det ch: 100%|██████████| 368/368 [00:04<00:00, 78.13it/s]
+
+
+Seal Predict: 0it [00:00, ?it/s][A
+Seal Predict: 0it [00:00, ?it/s]
+
+Processing pages:  42%|████▏     | 130/311 [00:08<00:11, 15.32it/s]
+Processing pages:  42%|████▏     | 132/311 [00:08<00:12, 14.36it/s]
+Processing pages:  43%|████▎     | 134/311 [00:08<00:12, 13.68it/s]
+Processing pages:  44%|████▎     | 136/311 [00:08<00:12, 13.49it/s]
+Processing pages:  44%|████▍     | 138/311 [00:08<00:12, 13.47it/s]
+Processing pages:  45%|████▌     | 140/311 [00:09<00:12, 13.62it/s]
+Processing pages:  46%|████▌     | 142/311 [00:09<00:11, 14.36it/s]
+Processing pages:  46%|████▋     | 144/311 [00:09<00:11, 15.01it/s]
+Processing pages:  47%|████▋     | 146/311 [00:09<00:10, 15.23it/s]
+Processing pages:  48%|████▊     | 149/311 [00:09<00:10, 16.18it/s]
+Processing pages:  49%|████▊     | 151/311 [00:09<00:09, 16.10it/s]
+Processing pages:  49%|████▉     | 153/311 [00:09<00:10, 15.74it/s]
+Processing pages:  50%|████▉     | 155/311 [00:10<00:10, 15.36it/s]
+Processing pages:  50%|█████     | 157/311 [00:10<00:10, 15.19it/s]
+Processing pages:  51%|█████     | 159/311 [00:10<00:09, 15.31it/s]
+Processing pages:  52%|█████▏    | 161/311 [00:10<00:09, 15.81it/s]
+Processing pages:  52%|█████▏    | 163/311 [00:10<00:09, 16.09it/s]
+Processing pages:  53%|█████▎    | 165/311 [00:10<00:08, 16.76it/s]
+Processing pages:  54%|█████▎    | 167/311 [00:10<00:08, 16.53it/s]
+Processing pages:  54%|█████▍    | 169/311 [00:10<00:08, 16.02it/s]
+Processing pages:  55%|█████▍    | 171/311 [00:11<00:08, 15.81it/s]
+Processing pages:  56%|█████▌    | 173/311 [00:11<00:08, 15.89it/s]
+Processing pages:  56%|█████▋    | 175/311 [00:11<00:09, 14.69it/s]
+Processing pages:  57%|█████▋    | 177/311 [00:11<00:13,  9.73it/s]
+Processing pages:  58%|█████▊    | 179/311 [00:11<00:12, 11.00it/s]
+Processing pages:  58%|█████▊    | 181/311 [00:11<00:10, 12.12it/s]
+Processing pages:  59%|█████▉    | 183/311 [00:12<00:09, 13.60it/s]
+Processing pages:  59%|█████▉    | 185/311 [00:12<00:08, 14.51it/s]
+Processing pages:  60%|██████    | 187/311 [00:12<00:08, 14.83it/s]
+Processing pages:  61%|██████    | 189/311 [00:12<00:08, 15.14it/s]
+Processing pages:  61%|██████▏   | 191/311 [00:12<00:07, 15.36it/s]2026-06-20 17:14:11.418 | INFO     | mineru.backend.pipeline.pipeline_analyze:doc_analyze_streaming:264 - Pipeline processing window batch 4/5: 256/311 pages, batch_pages=64, doc_slices=doc0:193-256
+2026-06-20 17:14:11.419 | INFO     | mineru.backend.pipeline.pipeline_analyze:batch_image_analyze:364 - GPU Memory: 24 GB, Batch Ratio: 8. 
+
+
+Layout Predict:   0%|          | 0/64 [00:00<?, ?it/s][A
+
+Layout Predict:  12%|█▎        | 8/64 [00:00<00:02, 25.71it/s][A
+
+Layout Predict:  25%|██▌       | 16/64 [00:00<00:01, 25.80it/s][A
+
+Layout Predict:  38%|███▊      | 24/64 [00:00<00:01, 26.02it/s][A
+
+Layout Predict:  50%|█████     | 32/64 [00:01<00:01, 26.04it/s][A
+
+Layout Predict:  62%|██████▎   | 40/64 [00:01<00:00, 24.09it/s][A
+
+Layout Predict:  75%|███████▌  | 48/64 [00:01<00:00, 22.98it/s][A
+
+Layout Predict:  88%|████████▊ | 56/64 [00:02<00:00, 22.28it/s][A
+
+Layout Predict: 100%|██████████| 64/64 [00:02<00:00, 22.45it/s][A
+Layout Predict: 100%|██████████| 64/64 [00:02<00:00, 23.53it/s]
+
+
+Table orientation det:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Table orientation det:  67%|██████▋   | 2/3 [00:00<00:00, 13.20it/s][A
+
+Table orientation score: 100%|██████████| 3/3 [00:00<00:00, 13.20it/s][A
+
+Table orientation score: 100%|██████████| 3/3 [00:00<00:00, 13.20it/s][A
+
+Table orientation: 100%|██████████| 3/3 [00:00<00:00, 13.20it/s]      [A
+
+Table orientation: 100%|██████████| 3/3 [00:00<00:00, 13.20it/s][A
+Table orientation: 100%|██████████| 3/3 [00:00<00:00, 15.75it/s]
+
+
+Table-ocr det:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Table-ocr det:  67%|██████▋   | 2/3 [00:00<00:00,  2.33it/s][A
+
+Table-ocr det: 100%|██████████| 3/3 [00:01<00:00,  2.97it/s][A
+Table-ocr det: 100%|██████████| 3/3 [00:01<00:00,  2.81it/s]
+
+
+Table-ocr rec ch:   0%|          | 0/462 [00:00<?, ?it/s][A
+
+Table-ocr rec ch:   3%|▎         | 12/462 [00:00<00:07, 63.46it/s][A
+
+Table-ocr rec ch:   5%|▌         | 24/462 [00:00<00:05, 84.29it/s][A
+
+Table-ocr rec ch:   8%|▊         | 36/462 [00:00<00:05, 73.37it/s][A
+
+Table-ocr rec ch:  10%|█         | 48/462 [00:00<00:06, 68.82it/s][A
+
+Table-ocr rec ch:  13%|█▎        | 60/462 [00:00<00:05, 78.89it/s][A
+
+Table-ocr rec ch:  16%|█▌        | 72/462 [00:00<00:04, 86.98it/s][A
+
+Table-ocr rec ch:  18%|█▊        | 84/462 [00:01<00:03, 95.15it/s][A
+
+Table-ocr rec ch:  30%|██▉       | 138/462 [00:01<00:01, 212.17it/s][A
+
+Table-ocr rec ch:  43%|████▎     | 198/462 [00:01<00:00, 313.95it/s][A
+
+Table-ocr rec ch:  56%|█████▌    | 258/462 [00:01<00:00, 387.58it/s][A
+
+Table-ocr rec ch:  69%|██████▉   | 318/462 [00:01<00:00, 438.83it/s][A
+
+Table-ocr rec ch:  82%|████████▏ | 378/462 [00:01<00:00, 471.22it/s][A
+
+Table-ocr rec ch:  94%|█████████▎| 432/462 [00:01<00:00, 490.10it/s][A
+Table-ocr rec ch: 100%|██████████| 462/462 [00:01<00:00, 272.31it/s]
+
+
+Table-wireless Predict:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Table-wireless Predict: 100%|██████████| 3/3 [00:00<00:00,  3.01it/s][A
+Table-wireless Predict: 100%|██████████| 3/3 [00:00<00:00,  3.01it/s]
+
+
+Table-wired Predict:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Table-wired Predict:  33%|███▎      | 1/3 [00:05<00:11,  5.69s/it][A
+Processing pages:  62%|██████▏   | 192/311 [00:30<00:07, 15.36it/s]
+
+Table-wired Predict:  67%|██████▋   | 2/3 [00:08<00:03,  3.95s/it][A
+
+Table-wired Predict: 100%|██████████| 3/3 [00:10<00:00,  2.91s/it][A
+Table-wired Predict: 100%|██████████| 3/3 [00:10<00:00,  3.36s/it]
+
+
+OCR-det ch:   0%|          | 0/814 [00:00<?, ?it/s][A
+
+OCR-det ch:   1%|          | 5/814 [00:03<08:25,  1.60it/s][A
+
+OCR-det ch:  10%|▉         | 80/814 [00:03<00:21, 33.52it/s][A
+
+OCR-det ch:  18%|█▊        | 148/814 [00:03<00:09, 66.76it/s][A
+
+OCR-det ch:  26%|██▌       | 212/814 [00:03<00:05, 105.97it/s][A
+
+OCR-det ch:  37%|███▋      | 299/814 [00:03<00:03, 143.06it/s][A
+
+OCR-det ch:  45%|████▍     | 363/814 [00:04<00:02, 178.05it/s][A
+
+OCR-det ch:  49%|████▉     | 401/814 [00:04<00:02, 190.78it/s][A
+
+OCR-det ch:  55%|█████▍    | 447/814 [00:04<00:02, 171.88it/s][A
+
+OCR-det ch:  64%|██████▍   | 524/814 [00:05<00:01, 155.98it/s][A
+
+OCR-det ch:  72%|███████▏  | 589/814 [00:05<00:01, 162.58it/s][A
+
+OCR-det ch:  77%|███████▋  | 628/814 [00:05<00:01, 167.17it/s][A
+
+OCR-det ch:  80%|███████▉  | 649/814 [00:06<00:01, 136.11it/s][A
+
+OCR-det ch:  82%|████████▏ | 670/814 [00:06<00:01, 122.16it/s][A
+
+OCR-det ch:  85%|████████▍ | 691/814 [00:06<00:00, 126.25it/s][A
+
+OCR-det ch:  87%|████████▋ | 707/814 [00:06<00:00, 120.87it/s][A
+
+OCR-det ch:  89%|████████▊ | 721/814 [00:06<00:00, 109.94it/s][A
+
+OCR-det ch:  90%|█████████ | 735/814 [00:06<00:00, 109.50it/s][A
+
+OCR-det ch:  92%|█████████▏| 751/814 [00:07<00:00, 100.40it/s][A
+
+OCR-det ch:  94%|█████████▎| 763/814 [00:07<00:00, 98.61it/s] [A
+
+OCR-det ch:  96%|█████████▌| 781/814 [00:07<00:00, 111.24it/s][A
+
+OCR-det ch:  98%|█████████▊| 795/814 [00:07<00:00, 111.89it/s][A
+
+OCR-det ch:  99%|█████████▉| 807/814 [00:07<00:00, 91.64it/s] [A
+OCR-det ch: 100%|██████████| 814/814 [00:07<00:00, 102.41it/s]
+
+
+Seal Predict: 0it [00:00, ?it/s][A
+Seal Predict: 0it [00:00, ?it/s]
+
+Processing pages:  62%|██████▏   | 194/311 [00:12<00:08, 13.91it/s]
+Processing pages:  63%|██████▎   | 196/311 [00:12<00:07, 14.62it/s]
+Processing pages:  64%|██████▎   | 198/311 [00:13<00:07, 15.16it/s]
+Processing pages:  64%|██████▍   | 200/311 [00:13<00:07, 15.27it/s]
+Processing pages:  65%|██████▍   | 202/311 [00:13<00:07, 15.03it/s]
+Processing pages:  66%|██████▌   | 204/311 [00:13<00:06, 16.12it/s]
+Processing pages:  67%|██████▋   | 207/311 [00:13<00:06, 16.85it/s]
+Processing pages:  67%|██████▋   | 209/311 [00:13<00:06, 16.89it/s]
+Processing pages:  68%|██████▊   | 211/311 [00:13<00:05, 17.33it/s]
+Processing pages:  68%|██████▊   | 213/311 [00:13<00:05, 17.79it/s]
+Processing pages:  69%|██████▉   | 215/311 [00:14<00:05, 17.74it/s]
+Processing pages:  70%|██████▉   | 217/311 [00:14<00:05, 17.79it/s]
+Processing pages:  70%|███████   | 219/311 [00:14<00:05, 17.85it/s]
+Processing pages:  71%|███████   | 221/311 [00:14<00:04, 18.02it/s]
+Processing pages:  72%|███████▏  | 223/311 [00:14<00:04, 18.15it/s]
+Processing pages:  72%|███████▏  | 225/311 [00:14<00:04, 18.08it/s]
+Processing pages:  73%|███████▎  | 227/311 [00:14<00:04, 18.46it/s]
+Processing pages:  74%|███████▎  | 229/311 [00:14<00:04, 18.65it/s]
+Processing pages:  74%|███████▍  | 231/311 [00:14<00:04, 18.61it/s]
+Processing pages:  75%|███████▍  | 233/311 [00:14<00:04, 18.48it/s]
+Processing pages:  76%|███████▌  | 235/311 [00:15<00:04, 18.36it/s]
+Processing pages:  76%|███████▌  | 237/311 [00:15<00:04, 18.31it/s]
+Processing pages:  77%|███████▋  | 239/311 [00:15<00:03, 18.26it/s]
+Processing pages:  77%|███████▋  | 241/311 [00:15<00:03, 18.13it/s]
+Processing pages:  78%|███████▊  | 243/311 [00:15<00:03, 18.17it/s]
+Processing pages:  79%|███████▉  | 245/311 [00:15<00:03, 18.19it/s]
+Processing pages:  79%|███████▉  | 247/311 [00:15<00:03, 18.48it/s]
+Processing pages:  80%|████████  | 249/311 [00:15<00:03, 18.55it/s]
+Processing pages:  81%|████████  | 251/311 [00:15<00:03, 18.53it/s]
+Processing pages:  81%|████████▏ | 253/311 [00:16<00:03, 18.90it/s]
+Processing pages:  82%|████████▏ | 256/311 [00:16<00:02, 19.64it/s]2026-06-20 17:14:48.431 | INFO     | mineru.backend.pipeline.pipeline_analyze:doc_analyze_streaming:264 - Pipeline processing window batch 5/5: 311/311 pages, batch_pages=55, doc_slices=doc0:257-311
+2026-06-20 17:14:48.432 | INFO     | mineru.backend.pipeline.pipeline_analyze:batch_image_analyze:364 - GPU Memory: 24 GB, Batch Ratio: 8. 
+
+
+Layout Predict:   0%|          | 0/55 [00:00<?, ?it/s][A
+
+Layout Predict:  15%|█▍        | 8/55 [00:00<00:02, 22.31it/s][A
+
+Layout Predict:  29%|██▉       | 16/55 [00:00<00:01, 25.16it/s][A
+
+Layout Predict:  44%|████▎     | 24/55 [00:00<00:01, 25.69it/s][A
+
+Layout Predict:  58%|█████▊    | 32/55 [00:01<00:00, 25.64it/s][A
+
+Layout Predict:  73%|███████▎  | 40/55 [00:01<00:00, 26.30it/s][A
+
+Layout Predict:  87%|████████▋ | 48/55 [00:01<00:00, 24.44it/s][A
+
+Layout Predict: 100%|██████████| 55/55 [00:02<00:00, 23.87it/s][A
+Layout Predict: 100%|██████████| 55/55 [00:02<00:00, 24.59it/s]
+
+
+Table orientation det:   0%|          | 0/6 [00:00<?, ?it/s][A
+
+Table orientation det:  33%|███▎      | 2/6 [00:00<00:00, 12.81it/s][A
+
+Table orientation det:  83%|████████▎ | 5/6 [00:00<00:00, 19.24it/s][A
+
+Table orientation det:  86%|████████▌ | 6/7 [00:00<00:00, 19.24it/s][A
+
+Table orientation score:  86%|████████▌ | 6/7 [00:00<00:00, 19.24it/s][A
+
+Table orientation score:  86%|████████▌ | 6/7 [00:00<00:00, 19.24it/s][A
+
+Table orientation score:  11%|█▏        | 7/61 [00:00<00:02, 19.24it/s][A
+
+Table orientation rec:  11%|█▏        | 7/61 [00:00<00:02, 19.24it/s]  [A
+
+Table orientation rec:  11%|█▏        | 7/61 [00:00<00:02, 19.24it/s][A
+
+Table orientation rec:  21%|██▏       | 13/61 [00:00<00:01, 36.62it/s][A
+
+Table orientation: 100%|██████████| 61/61 [00:00<00:00, 36.62it/s]    [A
+
+Table orientation: 100%|██████████| 61/61 [00:00<00:00, 36.62it/s][A
+Table orientation: 100%|██████████| 61/61 [00:00<00:00, 118.05it/s]
+
+
+Table-ocr det:   0%|          | 0/6 [00:00<?, ?it/s][A
+
+Table-ocr det:  17%|█▋        | 1/6 [00:00<00:01,  2.92it/s][A
+
+Table-ocr det:  33%|███▎      | 2/6 [00:00<00:00,  4.98it/s][A
+
+Table-ocr det:  50%|█████     | 3/6 [00:00<00:00,  6.28it/s][A
+
+Table-ocr det:  67%|██████▋   | 4/6 [00:00<00:00,  5.66it/s][A
+
+Table-ocr det: 100%|██████████| 6/6 [00:01<00:00,  6.26it/s][A
+Table-ocr det: 100%|██████████| 6/6 [00:01<00:00,  5.73it/s]
+
+
+Table-ocr rec ch:   0%|          | 0/170 [00:00<?, ?it/s][A
+
+Table-ocr rec ch:   7%|▋         | 12/170 [00:00<00:02, 64.85it/s][A
+
+Table-ocr rec ch:  14%|█▍        | 24/170 [00:00<00:01, 84.98it/s][A
+
+Table-ocr rec ch:  21%|██        | 36/170 [00:00<00:01, 73.95it/s][A
+
+Table-ocr rec ch:  28%|██▊       | 48/170 [00:00<00:01, 85.10it/s][A
+
+Table-ocr rec ch:  35%|███▌      | 60/170 [00:00<00:01, 74.80it/s][A
+
+Table-ocr rec ch:  42%|████▏     | 72/170 [00:00<00:01, 70.20it/s][A
+
+Table-ocr rec ch:  71%|███████   | 120/170 [00:01<00:00, 159.70it/s][A
+
+Table-ocr rec ch:  95%|█████████▌| 162/170 [00:01<00:00, 205.94it/s][A
+Table-ocr rec ch: 100%|██████████| 170/170 [00:01<00:00, 128.79it/s]
+
+
+Table-wireless Predict:   0%|          | 0/6 [00:00<?, ?it/s][A
+
+Table-wireless Predict:  67%|██████▋   | 4/6 [00:00<00:00,  5.95it/s][A
+
+Table-wireless Predict: 100%|██████████| 6/6 [00:01<00:00,  5.59it/s][A
+Table-wireless Predict: 100%|██████████| 6/6 [00:01<00:00,  5.65it/s]
+
+
+Table-wired Predict:   0%|          | 0/6 [00:00<?, ?it/s][A
+Processing pages:  82%|████████▏ | 256/311 [00:30<00:02, 19.64it/s]
+
+Table-wired Predict:  17%|█▋        | 1/6 [00:04<00:21,  4.39s/it][A
+
+Table-wired Predict:  33%|███▎      | 2/6 [00:04<00:08,  2.11s/it][A
+
+Table-wired Predict:  50%|█████     | 3/6 [00:05<00:04,  1.60s/it][A
+
+Table-wired Predict:  67%|██████▋   | 4/6 [00:06<00:02,  1.36s/it][A2026-06-20 17:15:02.696 | WARNING  | mineru.model.table.rec.unet_table.main:predict:374 - 'NoneType' object has no attribute 'reshape'
+
+
+Table-wired Predict:  83%|████████▎ | 5/6 [00:07<00:00,  1.02it/s][A
+
+Table-wired Predict: 100%|██████████| 6/6 [00:09<00:00,  1.50s/it][A
+Table-wired Predict: 100%|██████████| 6/6 [00:09<00:00,  1.62s/it]
+
+
+OCR-det ch:   0%|          | 0/515 [00:00<?, ?it/s][A
+
+OCR-det ch:   7%|▋         | 36/515 [00:01<00:16, 29.40it/s][A
+
+OCR-det ch:  11%|█         | 57/515 [00:01<00:09, 46.70it/s][A
+
+OCR-det ch:  16%|█▌        | 80/515 [00:01<00:06, 66.78it/s][A
+
+OCR-det ch:  30%|██▉       | 154/515 [00:01<00:02, 136.51it/s][A
+
+OCR-det ch:  37%|███▋      | 191/515 [00:01<00:02, 159.52it/s][A
+
+OCR-det ch:  45%|████▌     | 233/515 [00:02<00:01, 171.05it/s][A
+
+OCR-det ch:  50%|█████     | 260/515 [00:02<00:01, 156.52it/s][A
+
+OCR-det ch:  55%|█████▌    | 285/515 [00:02<00:01, 148.19it/s][A
+
+OCR-det ch:  59%|█████▉    | 303/515 [00:02<00:01, 131.93it/s][A
+
+OCR-det ch:  62%|██████▏   | 318/515 [00:02<00:01, 115.81it/s][A
+
+OCR-det ch:  64%|██████▍   | 332/515 [00:03<00:01, 112.74it/s][A
+
+OCR-det ch:  68%|██████▊   | 350/515 [00:03<00:01, 117.88it/s][A
+
+OCR-det ch:  71%|███████▏  | 367/515 [00:03<00:01, 120.26it/s][A
+
+OCR-det ch:  74%|███████▍  | 381/515 [00:03<00:01, 94.12it/s] [A
+
+OCR-det ch:  77%|███████▋  | 397/515 [00:03<00:01, 91.79it/s][A
+
+OCR-det ch:  80%|████████  | 412/515 [00:03<00:01, 98.07it/s][A
+
+OCR-det ch:  82%|████████▏ | 423/515 [00:04<00:01, 86.79it/s][A
+
+OCR-det ch:  84%|████████▍ | 434/515 [00:04<00:00, 83.60it/s][A
+
+OCR-det ch:  86%|████████▌ | 443/515 [00:04<00:01, 52.85it/s][A
+
+OCR-det ch:  87%|████████▋ | 450/515 [00:05<00:01, 37.39it/s][A
+
+OCR-det ch:  89%|████████▊ | 456/515 [00:05<00:01, 38.22it/s][A
+
+OCR-det ch:  90%|████████▉ | 461/515 [00:05<00:01, 35.08it/s][A
+
+OCR-det ch:  90%|█████████ | 466/515 [00:05<00:01, 34.03it/s][A
+
+OCR-det ch:  91%|█████████▏| 470/515 [00:05<00:01, 34.59it/s][A
+
+OCR-det ch:  92%|█████████▏| 475/515 [00:05<00:01, 35.21it/s][A
+
+OCR-det ch:  94%|█████████▍| 484/515 [00:05<00:00, 45.47it/s][A
+
+OCR-det ch:  95%|█████████▌| 490/515 [00:06<00:00, 41.17it/s][A
+
+OCR-det ch:  97%|█████████▋| 499/515 [00:06<00:00, 51.32it/s][A
+
+OCR-det ch:  98%|█████████▊| 507/515 [00:06<00:00, 44.65it/s][A
+
+OCR-det ch: 100%|█████████▉| 513/515 [00:06<00:00, 36.17it/s][A
+OCR-det ch: 100%|██████████| 515/515 [00:06<00:00, 76.43it/s]
+
+
+Seal Predict:   0%|          | 0/50 [00:00<?, ?it/s][A
+
+Seal Predict:   4%|▍         | 2/50 [00:00<00:04,  9.91it/s][A
+
+Seal Predict:  10%|█         | 5/50 [00:00<00:03, 11.27it/s][A
+
+Seal Predict:  16%|█▌        | 8/50 [00:00<00:02, 15.28it/s][A
+
+Seal Predict:  22%|██▏       | 11/50 [00:00<00:02, 19.00it/s][A
+
+Seal Predict:  30%|███       | 15/50 [00:00<00:02, 16.45it/s][A
+
+Seal Predict:  34%|███▍      | 17/50 [00:01<00:02, 11.26it/s][A
+
+Seal Predict:  38%|███▊      | 19/50 [00:01<00:02, 10.72it/s][A
+
+Seal Predict:  42%|████▏     | 21/50 [00:01<00:03,  8.64it/s][A
+
+Seal Predict:  46%|████▌     | 23/50 [00:02<00:03,  8.82it/s][A
+
+Seal Predict:  50%|█████     | 25/50 [00:02<00:02,  9.06it/s][A
+
+Seal Predict:  56%|█████▌    | 28/50 [00:02<00:02, 10.04it/s][A
+
+Seal Predict:  62%|██████▏   | 31/50 [00:02<00:01, 13.07it/s][A
+
+Seal Predict:  68%|██████▊   | 34/50 [00:02<00:00, 16.07it/s][A
+
+Seal Predict:  74%|███████▍  | 37/50 [00:02<00:00, 14.65it/s][A
+
+Seal Predict:  78%|███████▊  | 39/50 [00:03<00:00, 12.87it/s][A
+
+Seal Predict:  84%|████████▍ | 42/50 [00:03<00:00, 11.49it/s][A
+
+Seal Predict:  88%|████████▊ | 44/50 [00:03<00:00, 10.76it/s][A
+
+Seal Predict:  92%|█████████▏| 46/50 [00:04<00:00,  9.59it/s][A
+
+Seal Predict:  98%|█████████▊| 49/50 [00:04<00:00, 12.59it/s][A
+Seal Predict: 100%|██████████| 50/50 [00:04<00:00, 12.01it/s]
+
+Processing pages:  83%|████████▎ | 259/311 [00:16<00:02, 19.33it/s]
+Processing pages:  84%|████████▍ | 261/311 [00:16<00:02, 18.55it/s]
+Processing pages:  85%|████████▍ | 264/311 [00:16<00:02, 21.28it/s]
+Processing pages:  86%|████████▌ | 267/311 [00:16<00:01, 22.82it/s]
+Processing pages:  87%|████████▋ | 270/311 [00:16<00:01, 23.64it/s]
+Processing pages:  88%|████████▊ | 273/311 [00:16<00:01, 24.40it/s]
+Processing pages:  89%|████████▊ | 276/311 [00:17<00:01, 24.90it/s]
+Processing pages:  90%|████████▉ | 279/311 [00:17<00:01, 25.20it/s]
+Processing pages:  91%|█████████ | 282/311 [00:17<00:01, 25.00it/s]
+Processing pages:  92%|█████████▏| 285/311 [00:17<00:00, 26.05it/s]
+Processing pages:  93%|█████████▎| 288/311 [00:17<00:00, 26.77it/s]
+Processing pages:  94%|█████████▎| 291/311 [00:17<00:00, 27.36it/s]
+Processing pages:  95%|█████████▍| 294/311 [00:17<00:00, 26.95it/s]
+Processing pages:  95%|█████████▌| 297/311 [00:17<00:00, 26.77it/s]
+Processing pages:  96%|█████████▋| 300/311 [00:17<00:00, 26.83it/s]
+Processing pages:  97%|█████████▋| 303/311 [00:18<00:00, 27.17it/s]
+Processing pages:  98%|█████████▊| 306/311 [00:18<00:00, 27.05it/s]
+Processing pages:  99%|█████████▉| 309/311 [00:18<00:00, 26.05it/s]
+
+OCR-rec Predict:   0%|          | 0/477 [00:00<?, ?it/s][A
+
+OCR-rec Predict:  13%|█▎        | 60/477 [00:00<00:00, 573.83it/s][A
+
+OCR-rec Predict:  25%|██▌       | 120/477 [00:00<00:00, 584.02it/s][A
+
+OCR-rec Predict:  38%|███▊      | 180/477 [00:00<00:00, 485.86it/s][A
+
+OCR-rec Predict:  49%|████▉     | 234/477 [00:00<00:00, 461.02it/s][A
+
+OCR-rec Predict:  59%|█████▉    | 282/477 [00:00<00:00, 299.68it/s][A
+
+OCR-rec Predict:  68%|██████▊   | 324/477 [00:01<00:00, 224.60it/s][A
+
+OCR-rec Predict:  74%|███████▍  | 354/477 [00:01<00:00, 194.91it/s][A
+
+OCR-rec Predict:  79%|███████▉  | 378/477 [00:01<00:00, 169.84it/s][A
+
+OCR-rec Predict:  84%|████████▍ | 402/477 [00:01<00:00, 147.88it/s][A
+
+OCR-rec Predict:  88%|████████▊ | 420/477 [00:01<00:00, 146.38it/s][A
+
+OCR-rec Predict:  92%|█████████▏| 438/477 [00:01<00:00, 144.05it/s][A
+
+OCR-rec Predict:  96%|█████████▌| 456/477 [00:02<00:00, 143.52it/s][A
+
+OCR-rec Predict:  99%|█████████▉| 474/477 [00:02<00:00, 133.79it/s][A
+OCR-rec Predict: 100%|██████████| 477/477 [00:02<00:00, 204.29it/s]
+
+Processing pages: 100%|██████████| 311/311 [00:21<00:00, 14.27it/s]
+2026-06-20 17:15:33.173 | INFO     | mineru.cli.client:run_planned_task:883 - Completed batch 1/1 | Processed 311/311 pages | 1 of 1 batch finished | task#1 [text01]
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+
+libgomp: Invalid value for environment variable OMP_NUM_THREADS
+INFO:     Application shutdown complete.
+INFO:     Finished server process [4133]
+
+===== summary =====
+end: 2026-06-20T17:15:44
+elapsed_seconds: 515.772
+return_code: 0
