@@ -1,5 +1,5 @@
 ===== popo_inference_hybrid =====
-start: 2026-06-20T18:20:33
+start: 2026-06-21T14:19:52
 script:
 
 set -euo pipefail
@@ -36,47 +36,49 @@ python /root/autodl-tmp/mineru-work/repos/MinerU-Popo/post_processing/run_infere
 
 ===== output =====
 
-mineru_hybrid:   0%|                                                                                                        | 0/1 [00:00<?, ?it/s]/autodl-fs/data/mineru_popo_sixway_text01/20260620_170708/popo_work/hybrid/outputs/inference/mineru_hybrid/text01.json
+mineru_hybrid:   0%|                                                                                   | 0/1 [00:00<?, ?it/s]/autodl-fs/data/mineru_popo_sixway_text01/20260620_170708/popo_work/hybrid/outputs/inference/mineru_hybrid/text01.json
 
 
-Loading weights:   0%|                                                                                                    | 0/713 [00:00<?, ?it/s][A
+Loading weights:   0%|                                                                               | 0/713 [00:00<?, ?it/s][A
 
-Loading weights:   0%|▏                                                                                           | 1/713 [00:00<02:30,  4.75it/s][A
+Loading weights:   0%|                                                                       | 1/713 [00:00<02:29,  4.76it/s][A
 
-Loading weights:   8%|███████▎                                                                                  | 58/713 [00:00<00:03, 199.81it/s][A
+Loading weights:   8%|█████▌                                                               | 58/713 [00:00<00:02, 223.59it/s][A
 
-Loading weights:  13%|███████████▍                                                                              | 91/713 [00:00<00:02, 230.79it/s][A
+Loading weights:  12%|████████▌                                                            | 89/713 [00:00<00:02, 242.72it/s][A
 
-Loading weights:  17%|██████████████▋                                                                          | 118/713 [00:00<00:02, 233.86it/s][A
+Loading weights:  17%|███████████▎                                                        | 118/713 [00:00<00:02, 230.03it/s][A
 
-Loading weights:  20%|██████████████████▏                                                                      | 146/713 [00:00<00:02, 236.44it/s][A
+Loading weights:  20%|█████████████▋                                                      | 144/713 [00:00<00:02, 235.04it/s][A
 
-Loading weights:  25%|██████████████████████▎                                                                  | 179/713 [00:00<00:02, 229.86it/s][A
+Loading weights:  24%|████████████████▏                                                   | 170/713 [00:00<00:02, 206.50it/s][A
 
-Loading weights:  28%|█████████████████████████▎                                                               | 203/713 [00:00<00:02, 227.75it/s][A
+Loading weights:  27%|██████████████████▍                                                 | 193/713 [00:00<00:02, 211.58it/s][A
 
-Loading weights:  33%|█████████████████████████████▏                                                           | 234/713 [00:01<00:02, 237.23it/s][A
+Loading weights:  30%|████████████████████▌                                               | 216/713 [00:01<00:02, 214.93it/s][A
 
-Loading weights:  36%|████████████████████████████████▎                                                        | 259/713 [00:01<00:01, 238.73it/s][A
+Loading weights:  34%|███████████████████████▎                                            | 245/713 [00:01<00:02, 229.23it/s][A
 
-Loading weights:  41%|████████████████████████████████████                                                     | 289/713 [00:01<00:01, 239.77it/s][A
+Loading weights:  38%|█████████████████████████▋                                          | 269/713 [00:01<00:02, 217.82it/s][A
 
-Loading weights:  44%|███████████████████████████████████████▏                                                 | 314/713 [00:01<00:01, 241.01it/s][A
+Loading weights:  42%|████████████████████████████▌                                       | 300/713 [00:01<00:01, 217.95it/s][A
 
-Loading weights:  48%|██████████████████████████████████████████▉                                              | 344/713 [00:01<00:01, 230.06it/s][A
+Loading weights:  45%|██████████████████████████████▊                                     | 323/713 [00:01<00:01, 216.98it/s][A
 
-Loading weights:  52%|█████████████████████████████████████████████▉                                           | 368/713 [00:01<00:01, 225.20it/s][A
+Loading weights:  48%|████████████████████████████████▉                                   | 345/713 [00:01<00:01, 214.25it/s][A
 
-Loading weights:  56%|█████████████████████████████████████████████████▌                                       | 397/713 [00:01<00:01, 242.30it/s][A
+Loading weights:  53%|███████████████████████████████████▉                                | 377/713 [00:01<00:01, 230.64it/s][A
 
-Loading weights:  82%|████████████████████████████████████████████████████████████████████████▉                | 584/713 [00:01<00:00, 687.40it/s][A
+Loading weights:  64%|███████████████████████████████████████████▍                        | 456/713 [00:01<00:00, 381.30it/s][A
 
-Loading weights:  96%|█████████████████████████████████████████████████████████████████████████████████████▉   | 688/713 [00:01<00:00, 769.15it/s][A
-Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████████| 713/713 [00:02<00:00, 351.26it/s]
+Loading weights:  89%|████████████████████████████████████████████████████████████▎       | 632/713 [00:01<00:00, 762.85it/s][A
 
-mineru_hybrid: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [01:25<00:00, 85.00s/it]
-mineru_hybrid: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [01:25<00:00, 85.00s/it]
-{"model": "mineru_hybrid", "input": "/autodl-fs/data/mineru_popo_sixway_text01/20260620_170708/popo_work/hybrid/outputs/label_normalization/mineru", "output_dir": "/autodl-fs/data/mineru_popo_sixway_text01/20260620_170708/popo_work/hybrid/outputs/inference/mineru_hybrid", "raw_output_dir": null, "selected_docs": 1, "written": 1, "skipped_existing": 0, "validated_blocks": 277, "dry_run": false}
+Loading weights: 100%|████████████████████████████████████████████████████████████████████| 713/713 [00:02<00:00, 752.96it/s][A
+Loading weights: 100%|████████████████████████████████████████████████████████████████████| 713/713 [00:02<00:00, 345.59it/s]
+
+mineru_hybrid: 100%|██████████████████████████████████████████████████████████████████████████| 1/1 [07:39<00:00, 459.34s/it]
+mineru_hybrid: 100%|██████████████████████████████████████████████████████████████████████████| 1/1 [07:39<00:00, 459.34s/it]
+{"model": "mineru_hybrid", "input": "/autodl-fs/data/mineru_popo_sixway_text01/20260620_170708/popo_work/hybrid/outputs/label_normalization/mineru", "output_dir": "/autodl-fs/data/mineru_popo_sixway_text01/20260620_170708/popo_work/hybrid/outputs/inference/mineru_hybrid", "raw_output_dir": null, "selected_docs": 1, "written": 1, "skipped_existing": 0, "validated_blocks": 1862, "dry_run": false}
 {
   "model": {
     "model": "mineru_hybrid",
@@ -86,12 +88,12 @@ mineru_hybrid: 100%|████████████████████
     "selected_docs": 1,
     "written": 1,
     "skipped_existing": 0,
-    "validated_blocks": 277,
+    "validated_blocks": 1862,
     "dry_run": false
   }
 }
 
 ===== summary =====
-end: 2026-06-20T18:22:00
-elapsed_seconds: 86.514
+end: 2026-06-21T14:27:33
+elapsed_seconds: 460.972
 return_code: 0

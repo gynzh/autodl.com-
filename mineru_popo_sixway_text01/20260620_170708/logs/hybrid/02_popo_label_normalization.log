@@ -1,5 +1,5 @@
 ===== popo_label_normalization_hybrid =====
-start: 2026-06-20T18:20:33
+start: 2026-06-21T14:19:51
 script:
 
 set -euo pipefail
@@ -36,6 +36,6 @@ python /root/autodl-tmp/mineru-work/repos/MinerU-Popo/post_processing/label_norm
 [label-normalization] model=mineru docs=1/1 format=post-processing output_dir=/autodl-fs/data/mineru_popo_sixway_text01/20260620_170708/popo_work/hybrid/outputs/label_normalization/mineru
 
 ===== summary =====
-end: 2026-06-20T18:20:33
-elapsed_seconds: 0.286
+end: 2026-06-21T14:19:52
+elapsed_seconds: 0.570
 return_code: 0

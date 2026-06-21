@@ -1,5 +1,5 @@
 ===== popo_build_tree_hybrid =====
-start: 2026-06-20T18:22:00
+start: 2026-06-21T14:27:33
 script:
 
 set -euo pipefail
@@ -32,6 +32,6 @@ python /root/autodl-tmp/mineru-work/repos/MinerU-Popo/post_processing/get_json_t
 ===== output =====
 
 ===== summary =====
-end: 2026-06-20T18:22:01
-elapsed_seconds: 1.146
+end: 2026-06-21T14:27:34
+elapsed_seconds: 0.549
 return_code: 0
