@@ -1,0 +1,15 @@
+﻿index,doc_id,pdf_name,pdf_path,pdf_size_bytes,pdf_size_human
+0,text01,text01.pdf,/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf,7822375,7.46MB
+1,text02,text02.pdf,/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text02.pdf,7222422,6.89MB
+2,text03,text03.pdf,/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text03.pdf,13443633,12.82MB
+3,text04,text04.pdf,/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text04.pdf,13821429,13.18MB
+4,text05,text05.pdf,/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text05.pdf,6211838,5.92MB
+5,text06,text06.pdf,/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text06.pdf,6142229,5.86MB
+6,text07,text07.pdf,/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text07.pdf,1548649,1.48MB
+7,text08,text08.pdf,/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text08.pdf,8587842,8.19MB
+8,text09,text09.pdf,/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text09.pdf,8062120,7.69MB
+9,text10,text10.pdf,/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text10.pdf,12595610,12.01MB
+10,text11,text11.pdf,/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text11.pdf,8472825,8.08MB
+11,text12,text12.pdf,/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text12.pdf,1362591,1.30MB
+12,text13,text13.pdf,/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text13.pdf,8289770,7.91MB
+13,text14,text14.pdf,/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text14.pdf,7119062,6.79MB

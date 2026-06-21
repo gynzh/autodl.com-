@@ -1,0 +1,513 @@
+===== mineru_vlm_text01 =====
+start: 2026-06-21T16:29:32
+script:
+
+set -euo pipefail
+
+unset OMP_NUM_THREADS MKL_NUM_THREADS OPENBLAS_NUM_THREADS NUMEXPR_NUM_THREADS VECLIB_MAXIMUM_THREADS
+export OMP_NUM_THREADS=8
+export MKL_NUM_THREADS=8
+export OPENBLAS_NUM_THREADS=8
+export NUMEXPR_NUM_THREADS=8
+export VECLIB_MAXIMUM_THREADS=8
+export TOKENIZERS_PARALLELISM=false
+
+source /root/autodl-tmp/mineru-work/activate_mineru.sh
+
+unset OMP_NUM_THREADS MKL_NUM_THREADS OPENBLAS_NUM_THREADS NUMEXPR_NUM_THREADS VECLIB_MAXIMUM_THREADS
+export OMP_NUM_THREADS=8
+export MKL_NUM_THREADS=8
+export OPENBLAS_NUM_THREADS=8
+export NUMEXPR_NUM_THREADS=8
+export VECLIB_MAXIMUM_THREADS=8
+export TOKENIZERS_PARALLELISM=false
+
+export MINERU_MODEL_SOURCE=local
+
+python - <<'PY'
+import os
+import torch
+n = int(os.environ.get("OMP_NUM_THREADS", "8"))
+assert n > 0, n
+torch.set_num_threads(n)
+print("[pdf_parse] thread env:",
+      "OMP_NUM_THREADS=", repr(os.environ.get("OMP_NUM_THREADS")),
+      "MKL_NUM_THREADS=", repr(os.environ.get("MKL_NUM_THREADS")),
+      "OPENBLAS_NUM_THREADS=", repr(os.environ.get("OPENBLAS_NUM_THREADS")))
+print("[pdf_parse] torch.get_num_threads() =", torch.get_num_threads())
+PY
+
+cd /root/autodl-tmp/mineru-work
+echo "[pdf_parse] doc_id=text01"
+echo "[pdf_parse] pdf=/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf"
+echo "[pdf_parse] mineru_out=/autodl-fs/data/mineru_popo_batch/financial_contracts/20260621_162932/mineru_raw/vlm"
+echo "[pdf_parse] command: mineru -p /root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf -o /autodl-fs/data/mineru_popo_batch/financial_contracts/20260621_162932/mineru_raw/vlm -b vlm-auto-engine"
+mineru -p /root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf -o /autodl-fs/data/mineru_popo_batch/financial_contracts/20260621_162932/mineru_raw/vlm -b vlm-auto-engine
+
+
+===== output =====
+[pdf_parse] thread env: OMP_NUM_THREADS= '8' MKL_NUM_THREADS= '8' OPENBLAS_NUM_THREADS= '8'
+[pdf_parse] torch.get_num_threads() = 8
+[pdf_parse] doc_id=text01
+[pdf_parse] pdf=/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf
+[pdf_parse] mineru_out=/autodl-fs/data/mineru_popo_batch/financial_contracts/20260621_162932/mineru_raw/vlm
+[pdf_parse] command: mineru -p /root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf -o /autodl-fs/data/mineru_popo_batch/financial_contracts/20260621_162932/mineru_raw/vlm -b vlm-auto-engine
+2026-06-21 16:29:39.148 | INFO     | mineru.cli.client:run_orchestrated_cli:953 - Started local mineru-api at http://127.0.0.1:35913
+2026-06-21 16:29:45.801 | INFO     | __main__:create_app:236 - Request concurrency limited to 3
+INFO:     Started server process [1408]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:35913 (Press CTRL+C to quit)
+2026-06-21 16:29:46.251 | INFO     | mineru.cli.client:run_planned_task:832 - Submitting batch 1/1 | 1 document, 311 pages in this batch | 311 pages total | task#1 [text01]
+2026-06-21 16:29:49.132 | INFO     | mineru.utils.engine_utils:get_vlm_engine:34 - Using vllm-async-engine as the inference engine for VLM.
+Start MinerU FastAPI Service: http://127.0.0.1:35913
+API documentation: http://127.0.0.1:35913/docs
+WARNING 06-21 16:29:50 [config.py:70] Support for Transformers v4 is deprecated. The Transformers v4 codepath will become unmaintained in vLLM v0.22.0 and will be removed in vLLM v0.24.0. Please upgrade to Transformers v5: pip install --upgrade transformers
+2026-06-21 16:29:53.273 | INFO     | mineru.backend.vlm.utils:enable_custom_logits_processors:56 - compute_capability: 8.9 >= 8.0 and vllm version: 0.21.0 >= 0.10.1, enable custom_logits_processors
+INFO 06-21 16:29:53 [model.py:568] Resolved architecture: Qwen2VLForConditionalGeneration
+INFO 06-21 16:29:53 [model.py:1697] Using max model len 8192
+INFO 06-21 16:29:53 [scheduler.py:239] Chunked prefill is enabled with max_num_batched_tokens=2048.
+INFO 06-21 16:29:53 [vllm.py:886] Asynchronous scheduling is enabled.
+INFO 06-21 16:29:53 [kernel.py:212] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+WARNING 06-21 16:29:59 [system_utils.py:157] We must use the `spawn` multiprocessing start method. Overriding VLLM_WORKER_MULTIPROC_METHOD to 'spawn'. See https://docs.vllm.ai/en/latest/usage/troubleshooting.html#python-multiprocessing for more information. Reasons: CUDA is initialized
+WARNING 06-21 16:30:07 [config.py:70] Support for Transformers v4 is deprecated. The Transformers v4 codepath will become unmaintained in vLLM v0.22.0 and will be removed in vLLM v0.24.0. Please upgrade to Transformers v5: pip install --upgrade transformers
+(EngineCore pid=1522) INFO 06-21 16:30:07 [core.py:109] Initializing a V1 LLM engine (v0.21.0) with config: model='/root/autodl-tmp/modelscope-cache/models/OpenDataLab/MinerU2___5-Pro-2605-1___2B', speculative_config=None, tokenizer='/root/autodl-tmp/modelscope-cache/models/OpenDataLab/MinerU2___5-Pro-2605-1___2B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=8192, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=/root/autodl-tmp/modelscope-cache/models/OpenDataLab/MinerU2___5-Pro-2605-1___2B, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::kda_attention', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [2048], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'fuse_act_padding': False}, 'max_cudagraph_capture_size': 256, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']), enable_flashinfer_autotune=False, moe_backend='auto')
+(EngineCore pid=1522) INFO 06-21 16:30:09 [parallel_state.py:1410] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://172.17.0.4:49951 backend=nccl
+(EngineCore pid=1522) INFO 06-21 16:30:10 [parallel_state.py:1723] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=1522) INFO 06-21 16:30:10 [topk_topp_sampler.py:45] Using FlashInfer for top-p & top-k sampling.
+(EngineCore pid=1522) The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+(EngineCore pid=1522) INFO 06-21 16:30:14 [gpu_model_runner.py:4857] Starting to load model /root/autodl-tmp/modelscope-cache/models/OpenDataLab/MinerU2___5-Pro-2605-1___2B...
+(EngineCore pid=1522) INFO 06-21 16:30:14 [cuda.py:427] Using backend AttentionBackendEnum.FLASH_ATTN for vit attention
+(EngineCore pid=1522) INFO 06-21 16:30:14 [mm_encoder_attention.py:372] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+(EngineCore pid=1522) INFO 06-21 16:30:14 [vllm.py:886] Asynchronous scheduling is enabled.
+(EngineCore pid=1522) INFO 06-21 16:30:14 [kernel.py:212] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+(EngineCore pid=1522) INFO 06-21 16:30:14 [cuda.py:372] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=1522) INFO 06-21 16:30:14 [flash_attn.py:641] Using FlashAttention version 2
+(EngineCore pid=1522) INFO 06-21 16:30:15 [weight_utils.py:938] Filesystem type for checkpoints: XFS. Checkpoint size: 2.15 GiB. Available RAM: 761.71 GiB.
+(EngineCore pid=1522) INFO 06-21 16:30:15 [weight_utils.py:961] Auto-prefetch is disabled because the filesystem (XFS) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+(EngineCore pid=1522) 
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+(EngineCore pid=1522) 
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  1.65it/s]
+(EngineCore pid=1522) 
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  1.65it/s]
+(EngineCore pid=1522) 
+(EngineCore pid=1522) INFO 06-21 16:30:15 [default_loader.py:397] Loading weights took 0.74 seconds
+(EngineCore pid=1522) INFO 06-21 16:30:16 [gpu_model_runner.py:4959] Model loading took 2.16 GiB memory and 1.084551 seconds
+(EngineCore pid=1522) INFO 06-21 16:30:16 [gpu_model_runner.py:5920] Encoder cache will be initialized with a budget of 8192 tokens, and profiled with 1 video items of the maximum feature size.
+(EngineCore pid=1522) INFO 06-21 16:30:20 [backends.py:1089] Using cache directory: /root/autodl-tmp/xdg-cache/vllm/torch_compile_cache/9297b5eaeb/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore pid=1522) INFO 06-21 16:30:20 [backends.py:1148] Dynamo bytecode transform time: 2.22 s
+(EngineCore pid=1522) INFO 06-21 16:30:22 [backends.py:292] Directly load the compiled graph(s) for compile range (1, 2048) from the cache, took 1.343 s
+(EngineCore pid=1522) INFO 06-21 16:30:22 [decorators.py:311] Directly load AOT compilation from path /root/autodl-tmp/xdg-cache/vllm/torch_compile_cache/torch_aot_compile/b5c7e4ba53c8d2ef1b1a81c5b8c27fba84d585cf300b80ae5d74bd4e5a7cbeaa/rank_0_0/model
+(EngineCore pid=1522) INFO 06-21 16:30:22 [monitor.py:53] torch.compile took 3.87 s in total
+(EngineCore pid=1522) INFO 06-21 16:30:22 [monitor.py:81] Initial profiling/warmup run took 0.01 s
+(EngineCore pid=1522) INFO 06-21 16:30:22 [gpu_model_runner.py:6063] Profiling CUDA graph memory: PIECEWISE=35 (largest=256), FULL=19 (largest=128)
+(EngineCore pid=1522) INFO 06-21 16:30:23 [gpu_model_runner.py:6142] Estimated CUDA graph memory: 0.18 GiB total
+(EngineCore pid=1522) INFO 06-21 16:30:24 [gpu_worker.py:462] Available KV cache memory: 8.05 GiB
+(EngineCore pid=1522) INFO 06-21 16:30:24 [gpu_worker.py:477] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.5000 is equivalent to --gpu-memory-utilization=0.4922 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.5078. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=1522) INFO 06-21 16:30:24 [kv_cache_utils.py:1710] GPU KV cache size: 703,120 tokens
+(EngineCore pid=1522) INFO 06-21 16:30:24 [kv_cache_utils.py:1711] Maximum concurrency for 8,192 tokens per request: 85.83x
+(EngineCore pid=1522) INFO 06-21 16:30:24 [kernel_warmup.py:44] Skipping FlashInfer autotune because it is disabled.
+(EngineCore pid=1522) 
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/35 [00:00<?, ?it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  14%|█▍        | 5/35 [00:00<00:00, 42.74it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  29%|██▊       | 10/35 [00:00<00:00, 34.54it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  40%|████      | 14/35 [00:00<00:00, 36.33it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  54%|█████▍    | 19/35 [00:00<00:00, 38.53it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 24/35 [00:00<00:00, 39.61it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  83%|████████▎ | 29/35 [00:00<00:00, 39.92it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  97%|█████████▋| 34/35 [00:00<00:00, 40.02it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 35/35 [00:00<00:00, 38.50it/s]
+(EngineCore pid=1522) 
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/19 [00:00<?, ?it/s]
+Capturing CUDA graphs (decode, FULL):  21%|██        | 4/19 [00:00<00:00, 36.73it/s]
+Capturing CUDA graphs (decode, FULL):  42%|████▏     | 8/19 [00:00<00:00, 37.32it/s]
+Capturing CUDA graphs (decode, FULL):  63%|██████▎   | 12/19 [00:00<00:00, 37.94it/s]
+Capturing CUDA graphs (decode, FULL):  84%|████████▍ | 16/19 [00:00<00:00, 38.59it/s]
+Capturing CUDA graphs (decode, FULL): 100%|██████████| 19/19 [00:00<00:00, 38.76it/s]
+(EngineCore pid=1522) INFO 06-21 16:30:26 [gpu_model_runner.py:6243] Graph capturing finished in 2 secs, took 0.26 GiB
+(EngineCore pid=1522) INFO 06-21 16:30:26 [gpu_worker.py:621] CUDA graph pool memory: 0.26 GiB (actual), 0.18 GiB (estimated), difference: 0.07 GiB (28.2%).
+(EngineCore pid=1522) INFO 06-21 16:30:26 [jit_monitor.py:54] Kernel JIT monitor activated — Triton JIT compilations during inference will be logged as warnings.
+(EngineCore pid=1522) INFO 06-21 16:30:26 [core.py:299] init engine (profile, create kv cache, warmup model) took 10.05 s (compilation: 3.87 s)
+(EngineCore pid=1522) INFO 06-21 16:30:26 [kernel.py:212] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+2026-06-21 16:30:26.966 | INFO     | mineru.backend.vlm.vlm_analyze:get_model:251 - get vllm-async-engine predictor cost: 37.83s
+2026-06-21 16:30:26.969 | INFO     | mineru.backend.vlm.vlm_analyze:aio_doc_analyze:553 - VLM processing-window run. page_count=311, window_size=64, total_windows=5
+2026-06-21 16:30:38.024 | INFO     | mineru.backend.vlm.vlm_analyze:aio_doc_analyze:572 - VLM processing window 1/5: pages 1-64/311 (64 pages)
+
+Two Step Extraction:   0%|          | 0/64 [00:00<?, ?it/s](EngineCore pid=1522) WARNING 06-21 16:30:46 [jit_monitor.py:103] Triton kernel JIT compilation during inference: _compute_slot_mapping_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+(EngineCore pid=1522) WARNING 06-21 16:30:46 [jit_monitor.py:103] Triton kernel JIT compilation during inference: rotary_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+
+Two Step Extraction:   2%|▏         | 1/64 [00:16<17:37, 16.78s/it]
+Two Step Extraction:   3%|▎         | 2/64 [00:17<07:41,  7.44s/it]
+Two Step Extraction:   6%|▋         | 4/64 [00:19<03:20,  3.35s/it]
+Two Step Extraction:   8%|▊         | 5/64 [00:20<02:41,  2.74s/it]
+Two Step Extraction:   9%|▉         | 6/64 [00:26<03:25,  3.54s/it]
+Two Step Extraction:  11%|█         | 7/64 [00:26<02:32,  2.67s/it]
+Two Step Extraction:  12%|█▎        | 8/64 [00:27<01:51,  1.98s/it]
+Two Step Extraction:  14%|█▍        | 9/64 [00:27<01:20,  1.46s/it]
+Two Step Extraction:  17%|█▋        | 11/64 [00:27<00:44,  1.20it/s]
+Two Step Extraction:  19%|█▉        | 12/64 [00:27<00:34,  1.53it/s]
+Two Step Extraction:  20%|██        | 13/64 [00:28<00:28,  1.77it/s]
+Two Step Extraction:  23%|██▎       | 15/64 [00:28<00:17,  2.83it/s]
+Two Step Extraction:  27%|██▋       | 17/64 [00:28<00:11,  4.13it/s]
+Two Step Extraction:  30%|██▉       | 19/64 [00:29<00:14,  3.10it/s]
+Two Step Extraction:  33%|███▎      | 21/64 [00:29<00:10,  4.18it/s]
+Two Step Extraction:  34%|███▍      | 22/64 [00:29<00:08,  4.68it/s]
+Two Step Extraction:  39%|███▉      | 25/64 [00:29<00:05,  7.19it/s]
+Two Step Extraction:  42%|████▏     | 27/64 [00:30<00:04,  7.95it/s]
+Two Step Extraction:  48%|████▊     | 31/64 [00:30<00:02, 12.34it/s]
+Two Step Extraction:  59%|█████▉    | 38/64 [00:30<00:01, 21.90it/s]
+Two Step Extraction:  70%|███████   | 45/64 [00:30<00:00, 29.60it/s]
+Two Step Extraction:  77%|███████▋  | 49/64 [00:30<00:00, 31.32it/s]
+Two Step Extraction:  83%|████████▎ | 53/64 [00:30<00:00, 33.24it/s]
+Two Step Extraction:  89%|████████▉ | 57/64 [00:30<00:00, 25.39it/s]
+Two Step Extraction:  95%|█████████▌| 61/64 [00:32<00:00,  8.38it/s]
+Two Step Extraction: 100%|██████████| 64/64 [00:32<00:00,  8.99it/s]
+Two Step Extraction: 100%|██████████| 64/64 [00:32<00:00,  1.98it/s]
+
+Processing pages:   0%|          | 0/311 [00:00<?, ?it/s]
+Processing pages:   1%|          | 2/311 [00:00<00:15, 19.43it/s]
+Processing pages:   2%|▏         | 5/311 [00:00<00:12, 23.60it/s]
+Processing pages:   3%|▎         | 8/311 [00:00<00:11, 26.28it/s]
+Processing pages:   4%|▎         | 11/311 [00:00<00:11, 25.73it/s]
+Processing pages:   5%|▍         | 14/311 [00:00<00:11, 26.93it/s]
+Processing pages:   5%|▌         | 17/311 [00:00<00:11, 26.49it/s]
+Processing pages:   6%|▋         | 20/311 [00:00<00:10, 26.65it/s]
+Processing pages:   7%|▋         | 23/311 [00:00<00:10, 27.15it/s]
+Processing pages:   8%|▊         | 26/311 [00:00<00:10, 27.78it/s]
+Processing pages:   9%|▉         | 29/311 [00:01<00:09, 28.22it/s]
+Processing pages:  10%|█         | 32/311 [00:01<00:09, 28.58it/s]
+Processing pages:  11%|█▏        | 35/311 [00:01<00:09, 28.79it/s]
+Processing pages:  12%|█▏        | 38/311 [00:01<00:09, 27.49it/s]
+Processing pages:  13%|█▎        | 41/311 [00:01<00:09, 27.62it/s]
+Processing pages:  14%|█▍        | 44/311 [00:01<00:09, 27.50it/s]
+Processing pages:  15%|█▌        | 47/311 [00:01<00:09, 26.74it/s]
+Processing pages:  16%|█▌        | 50/311 [00:01<00:10, 24.94it/s]
+Processing pages:  17%|█▋        | 53/311 [00:01<00:10, 25.51it/s]
+Processing pages:  18%|█▊        | 56/311 [00:02<00:09, 26.12it/s]
+Processing pages:  19%|█▉        | 59/311 [00:02<00:09, 27.07it/s]
+Processing pages:  20%|█▉        | 62/311 [00:02<00:08, 27.71it/s]2026-06-21 16:31:16.855 | INFO     | mineru.backend.vlm.vlm_analyze:aio_doc_analyze:572 - VLM processing window 2/5: pages 65-128/311 (64 pages)
+
+
+Two Step Extraction:   0%|          | 0/64 [00:00<?, ?it/s][A
+Processing pages:  21%|██        | 64/311 [00:17<00:08, 27.71it/s]
+
+Two Step Extraction:   2%|▏         | 1/64 [00:11<12:08, 11.57s/it][A
+
+Two Step Extraction:   3%|▎         | 2/64 [00:19<09:29,  9.19s/it][A
+
+Two Step Extraction:   6%|▋         | 4/64 [00:20<03:53,  3.90s/it][A
+
+Two Step Extraction:   8%|▊         | 5/64 [00:21<02:49,  2.87s/it][A
+
+Two Step Extraction:   9%|▉         | 6/64 [00:21<02:01,  2.10s/it][A
+
+Two Step Extraction:  11%|█         | 7/64 [00:21<01:27,  1.54s/it][A
+
+Two Step Extraction:  16%|█▌        | 10/64 [00:22<00:38,  1.41it/s][A
+
+Two Step Extraction:  17%|█▋        | 11/64 [00:22<00:31,  1.67it/s][A
+
+Two Step Extraction:  22%|██▏       | 14/64 [00:22<00:16,  2.96it/s][A
+
+Two Step Extraction:  25%|██▌       | 16/64 [00:22<00:14,  3.35it/s][A
+
+Two Step Extraction:  28%|██▊       | 18/64 [00:23<00:12,  3.56it/s][A
+
+Two Step Extraction:  30%|██▉       | 19/64 [00:23<00:11,  4.01it/s][A
+
+Two Step Extraction:  33%|███▎      | 21/64 [00:23<00:07,  5.51it/s][A
+
+Two Step Extraction:  36%|███▌      | 23/64 [00:24<00:09,  4.43it/s][A
+
+Two Step Extraction:  38%|███▊      | 24/64 [00:24<00:10,  3.98it/s][A
+
+Two Step Extraction:  42%|████▏     | 27/64 [00:24<00:05,  6.43it/s][A
+
+Two Step Extraction:  52%|█████▏    | 33/64 [00:24<00:02, 12.41it/s][A
+
+Two Step Extraction:  58%|█████▊    | 37/64 [00:24<00:01, 15.63it/s][A
+
+Two Step Extraction:  67%|██████▋   | 43/64 [00:24<00:00, 22.06it/s][A
+
+Two Step Extraction:  77%|███████▋  | 49/64 [00:25<00:00, 27.50it/s][A
+
+Two Step Extraction:  84%|████████▍ | 54/64 [00:25<00:00, 21.84it/s][A
+
+Two Step Extraction:  89%|████████▉ | 57/64 [00:25<00:00, 19.17it/s][A
+
+Two Step Extraction:  94%|█████████▍| 60/64 [00:25<00:00, 16.34it/s][A
+
+Two Step Extraction:  98%|█████████▊| 63/64 [00:26<00:00, 11.50it/s][A
+Two Step Extraction: 100%|██████████| 64/64 [00:27<00:00,  2.35it/s]
+
+Processing pages:  22%|██▏       | 67/311 [00:02<00:08, 27.36it/s]
+Processing pages:  23%|██▎       | 70/311 [00:02<00:08, 27.10it/s]
+Processing pages:  23%|██▎       | 73/311 [00:02<00:09, 26.31it/s]
+Processing pages:  24%|██▍       | 76/311 [00:02<00:09, 25.26it/s]
+Processing pages:  25%|██▌       | 79/311 [00:02<00:09, 24.84it/s]
+Processing pages:  26%|██▋       | 82/311 [00:03<00:09, 24.69it/s]
+Processing pages:  27%|██▋       | 85/311 [00:03<00:08, 25.64it/s]
+Processing pages:  28%|██▊       | 88/311 [00:03<00:08, 25.32it/s]
+Processing pages:  29%|██▉       | 91/311 [00:03<00:08, 25.34it/s]
+Processing pages:  30%|███       | 94/311 [00:03<00:08, 24.87it/s]
+Processing pages:  31%|███       | 97/311 [00:03<00:08, 25.81it/s]
+Processing pages:  32%|███▏      | 100/311 [00:03<00:08, 24.55it/s]
+Processing pages:  33%|███▎      | 103/311 [00:03<00:08, 23.57it/s]
+Processing pages:  34%|███▍      | 106/311 [00:04<00:08, 23.35it/s]
+Processing pages:  35%|███▌      | 109/311 [00:04<00:08, 23.22it/s]
+Processing pages:  36%|███▌      | 112/311 [00:04<00:08, 24.87it/s]
+Processing pages:  37%|███▋      | 115/311 [00:04<00:07, 25.65it/s]
+Processing pages:  38%|███▊      | 118/311 [00:04<00:07, 25.96it/s]
+Processing pages:  39%|███▉      | 121/311 [00:04<00:07, 26.01it/s]
+Processing pages:  40%|███▉      | 124/311 [00:04<00:07, 26.17it/s]
+Processing pages:  41%|████      | 127/311 [00:04<00:07, 25.50it/s]2026-06-21 16:31:50.947 | INFO     | mineru.backend.vlm.vlm_analyze:aio_doc_analyze:572 - VLM processing window 3/5: pages 129-192/311 (64 pages)
+
+
+Two Step Extraction:   0%|          | 0/64 [00:00<?, ?it/s][A
+Processing pages:  41%|████      | 128/311 [00:15<00:07, 25.50it/s]
+
+Two Step Extraction:   2%|▏         | 1/64 [00:14<15:44, 14.99s/it][A
+
+Two Step Extraction:   3%|▎         | 2/64 [00:19<08:58,  8.69s/it][A
+
+Two Step Extraction:   5%|▍         | 3/64 [00:20<05:15,  5.17s/it][A
+
+Two Step Extraction:   6%|▋         | 4/64 [00:21<03:37,  3.63s/it][A
+
+Two Step Extraction:   8%|▊         | 5/64 [00:21<02:22,  2.42s/it][A
+
+Two Step Extraction:   9%|▉         | 6/64 [00:22<01:54,  1.97s/it][A
+
+Two Step Extraction:  12%|█▎        | 8/64 [00:23<01:03,  1.13s/it][A
+
+Two Step Extraction:  14%|█▍        | 9/64 [00:23<00:52,  1.05it/s][A
+
+Two Step Extraction:  16%|█▌        | 10/64 [00:24<00:41,  1.31it/s][A
+
+Two Step Extraction:  19%|█▉        | 12/64 [00:24<00:24,  2.14it/s][A
+
+Two Step Extraction:  27%|██▋       | 17/64 [00:24<00:09,  5.00it/s][A
+
+Two Step Extraction:  33%|███▎      | 21/64 [00:24<00:05,  7.63it/s][A
+
+Two Step Extraction:  41%|████      | 26/64 [00:24<00:03, 11.54it/s][A
+
+Two Step Extraction:  47%|████▋     | 30/64 [00:24<00:02, 14.72it/s][A
+
+Two Step Extraction:  55%|█████▍    | 35/64 [00:24<00:01, 18.13it/s][A
+
+Two Step Extraction:  59%|█████▉    | 38/64 [00:25<00:01, 19.58it/s][A
+
+Two Step Extraction:  70%|███████   | 45/64 [00:25<00:01, 14.39it/s][A
+
+Two Step Extraction:  77%|███████▋  | 49/64 [00:26<00:01, 14.26it/s][A
+
+Two Step Extraction:  81%|████████▏ | 52/64 [00:26<00:00, 12.74it/s][A
+
+Two Step Extraction:  84%|████████▍ | 54/64 [00:26<00:01,  8.79it/s][A
+
+Two Step Extraction:  88%|████████▊ | 56/64 [00:27<00:00,  9.45it/s][A
+
+Two Step Extraction:  92%|█████████▏| 59/64 [00:27<00:00, 11.26it/s][A
+
+Two Step Extraction:  95%|█████████▌| 61/64 [00:27<00:00,  8.83it/s][A
+
+Two Step Extraction:  98%|█████████▊| 63/64 [00:28<00:00,  7.05it/s][A
+Two Step Extraction: 100%|██████████| 64/64 [00:28<00:00,  2.28it/s]
+
+Processing pages:  42%|████▏     | 131/311 [00:05<00:07, 24.20it/s]
+Processing pages:  43%|████▎     | 134/311 [00:05<00:07, 23.65it/s]
+Processing pages:  44%|████▍     | 137/311 [00:05<00:07, 23.38it/s]
+Processing pages:  45%|████▌     | 140/311 [00:05<00:07, 23.35it/s]
+Processing pages:  46%|████▌     | 143/311 [00:05<00:07, 23.69it/s]
+Processing pages:  47%|████▋     | 146/311 [00:05<00:06, 24.66it/s]
+Processing pages:  48%|████▊     | 149/311 [00:05<00:06, 25.18it/s]
+Processing pages:  49%|████▉     | 152/311 [00:05<00:06, 24.98it/s]
+Processing pages:  50%|████▉     | 155/311 [00:06<00:06, 24.80it/s]
+Processing pages:  51%|█████     | 158/311 [00:06<00:06, 25.23it/s]
+Processing pages:  52%|█████▏    | 161/311 [00:06<00:05, 25.56it/s]
+Processing pages:  53%|█████▎    | 164/311 [00:06<00:05, 25.92it/s]
+Processing pages:  54%|█████▎    | 167/311 [00:06<00:05, 24.76it/s]
+Processing pages:  55%|█████▍    | 170/311 [00:06<00:05, 24.09it/s]
+Processing pages:  56%|█████▌    | 173/311 [00:06<00:05, 24.06it/s]
+Processing pages:  57%|█████▋    | 176/311 [00:06<00:05, 24.93it/s]
+Processing pages:  58%|█████▊    | 179/311 [00:07<00:05, 24.31it/s]
+Processing pages:  59%|█████▊    | 182/311 [00:07<00:05, 24.34it/s]
+Processing pages:  59%|█████▉    | 185/311 [00:07<00:04, 25.64it/s]
+Processing pages:  60%|██████    | 188/311 [00:07<00:04, 25.09it/s]
+Processing pages:  61%|██████▏   | 191/311 [00:07<00:04, 24.67it/s]2026-06-21 16:32:26.100 | INFO     | mineru.backend.vlm.vlm_analyze:aio_doc_analyze:572 - VLM processing window 4/5: pages 193-256/311 (64 pages)
+
+
+Two Step Extraction:   0%|          | 0/64 [00:00<?, ?it/s][A
+
+Two Step Extraction:   2%|▏         | 1/64 [00:08<09:15,  8.82s/it][A
+
+Two Step Extraction:   3%|▎         | 2/64 [00:09<03:54,  3.78s/it][A
+
+Two Step Extraction:   5%|▍         | 3/64 [00:09<02:10,  2.14s/it][A
+Processing pages:  62%|██████▏   | 192/311 [00:23<00:04, 24.67it/s]
+
+Two Step Extraction:   6%|▋         | 4/64 [00:12<02:27,  2.46s/it][A
+
+Two Step Extraction:   8%|▊         | 5/64 [00:13<01:52,  1.91s/it][A
+
+Two Step Extraction:   9%|▉         | 6/64 [00:13<01:23,  1.44s/it][A
+
+Two Step Extraction:  11%|█         | 7/64 [00:13<00:58,  1.03s/it][A
+
+Two Step Extraction:  12%|█▎        | 8/64 [00:14<00:48,  1.16it/s][A
+
+Two Step Extraction:  14%|█▍        | 9/64 [00:14<00:36,  1.49it/s][A
+
+Two Step Extraction:  16%|█▌        | 10/64 [00:15<00:35,  1.53it/s][A
+
+Two Step Extraction:  17%|█▋        | 11/64 [00:15<00:28,  1.88it/s][A
+
+Two Step Extraction:  27%|██▋       | 17/64 [00:15<00:08,  5.83it/s][A
+
+Two Step Extraction:  30%|██▉       | 19/64 [00:16<00:07,  5.83it/s][A
+
+Two Step Extraction:  31%|███▏      | 20/64 [00:16<00:07,  5.76it/s][A
+
+Two Step Extraction:  33%|███▎      | 21/64 [00:16<00:09,  4.35it/s][A
+
+Two Step Extraction:  36%|███▌      | 23/64 [00:16<00:07,  5.74it/s][A
+
+Two Step Extraction:  38%|███▊      | 24/64 [00:17<00:10,  3.80it/s][A
+
+Two Step Extraction:  39%|███▉      | 25/64 [00:17<00:10,  3.81it/s][A
+
+Two Step Extraction:  41%|████      | 26/64 [00:18<00:11,  3.20it/s][A
+
+Two Step Extraction:  42%|████▏     | 27/64 [00:18<00:11,  3.17it/s][A
+
+Two Step Extraction:  48%|████▊     | 31/64 [00:18<00:06,  5.11it/s][A
+
+Two Step Extraction:  50%|█████     | 32/64 [00:19<00:07,  4.30it/s][A
+
+Two Step Extraction:  52%|█████▏    | 33/64 [00:19<00:08,  3.46it/s][A
+
+Two Step Extraction:  53%|█████▎    | 34/64 [00:20<00:07,  3.99it/s][A
+
+Two Step Extraction:  55%|█████▍    | 35/64 [00:20<00:06,  4.20it/s][A
+
+Two Step Extraction:  59%|█████▉    | 38/64 [00:20<00:03,  6.67it/s][A
+
+Two Step Extraction:  61%|██████    | 39/64 [00:20<00:03,  6.66it/s][A
+
+Two Step Extraction:  62%|██████▎   | 40/64 [00:20<00:04,  5.67it/s][A
+
+Two Step Extraction:  66%|██████▌   | 42/64 [00:20<00:02,  7.68it/s][A
+
+Two Step Extraction:  69%|██████▉   | 44/64 [00:21<00:03,  6.02it/s][A
+
+Two Step Extraction:  75%|███████▌  | 48/64 [00:21<00:01,  8.75it/s][A
+
+Two Step Extraction:  83%|████████▎ | 53/64 [00:21<00:00, 12.24it/s][A
+
+Two Step Extraction:  95%|█████████▌| 61/64 [00:22<00:00, 16.61it/s][A
+
+Two Step Extraction:  98%|█████████▊| 63/64 [00:22<00:00, 10.81it/s][A
+Two Step Extraction: 100%|██████████| 64/64 [00:22<00:00,  2.79it/s]
+
+Processing pages:  62%|██████▏   | 194/311 [00:07<00:05, 22.72it/s]
+Processing pages:  63%|██████▎   | 197/311 [00:07<00:04, 23.18it/s]
+Processing pages:  64%|██████▍   | 200/311 [00:07<00:04, 23.69it/s]
+Processing pages:  65%|██████▌   | 203/311 [00:08<00:04, 24.03it/s]
+Processing pages:  66%|██████▌   | 206/311 [00:08<00:04, 24.39it/s]
+Processing pages:  67%|██████▋   | 209/311 [00:08<00:04, 24.57it/s]
+Processing pages:  68%|██████▊   | 212/311 [00:08<00:04, 24.12it/s]
+Processing pages:  69%|██████▉   | 215/311 [00:08<00:03, 24.35it/s]
+Processing pages:  70%|███████   | 218/311 [00:08<00:03, 24.43it/s]
+Processing pages:  71%|███████   | 221/311 [00:08<00:03, 24.49it/s]
+Processing pages:  72%|███████▏  | 224/311 [00:08<00:03, 24.71it/s]
+Processing pages:  73%|███████▎  | 227/311 [00:08<00:03, 24.61it/s]
+Processing pages:  74%|███████▍  | 230/311 [00:09<00:03, 24.33it/s]
+Processing pages:  75%|███████▍  | 233/311 [00:09<00:03, 24.38it/s]
+Processing pages:  76%|███████▌  | 236/311 [00:09<00:03, 24.00it/s]
+Processing pages:  77%|███████▋  | 239/311 [00:09<00:02, 24.43it/s]
+Processing pages:  78%|███████▊  | 242/311 [00:09<00:02, 23.69it/s]
+Processing pages:  79%|███████▉  | 245/311 [00:09<00:02, 23.42it/s]
+Processing pages:  80%|███████▉  | 248/311 [00:09<00:02, 24.23it/s]
+Processing pages:  81%|████████  | 251/311 [00:10<00:02, 23.53it/s]
+Processing pages:  82%|████████▏ | 254/311 [00:10<00:02, 23.91it/s]2026-06-21 16:32:58.304 | INFO     | mineru.backend.vlm.vlm_analyze:aio_doc_analyze:572 - VLM processing window 5/5: pages 257-311/311 (55 pages)
+
+
+Two Step Extraction:   0%|          | 0/55 [00:00<?, ?it/s][A
+
+Two Step Extraction:   2%|▏         | 1/55 [00:06<06:13,  6.92s/it][A
+
+Two Step Extraction:   5%|▌         | 3/55 [00:07<01:48,  2.09s/it][A
+
+Two Step Extraction:   7%|▋         | 4/55 [00:09<01:38,  1.94s/it][A
+Processing pages:  82%|████████▏ | 256/311 [00:26<00:02, 23.91it/s]
+
+Two Step Extraction:   9%|▉         | 5/55 [00:09<01:15,  1.50s/it][A
+
+Two Step Extraction:  15%|█▍        | 8/55 [00:10<00:31,  1.48it/s][A
+
+Two Step Extraction:  22%|██▏       | 12/55 [00:10<00:16,  2.67it/s][A
+
+Two Step Extraction:  31%|███       | 17/55 [00:10<00:07,  4.81it/s][A
+
+Two Step Extraction:  35%|███▍      | 19/55 [00:11<00:06,  5.40it/s][A
+
+Two Step Extraction:  44%|████▎     | 24/55 [00:11<00:04,  7.66it/s][A
+
+Two Step Extraction:  47%|████▋     | 26/55 [00:11<00:04,  6.27it/s][A
+
+Two Step Extraction:  55%|█████▍    | 30/55 [00:12<00:03,  8.29it/s][A
+
+Two Step Extraction:  60%|██████    | 33/55 [00:12<00:02,  8.50it/s][A
+
+Two Step Extraction:  64%|██████▎   | 35/55 [00:12<00:02,  9.15it/s][A
+
+Two Step Extraction:  67%|██████▋   | 37/55 [00:12<00:02,  8.60it/s][A
+
+Two Step Extraction:  71%|███████   | 39/55 [00:13<00:01,  9.16it/s][A
+
+Two Step Extraction:  75%|███████▍  | 41/55 [00:13<00:01,  9.38it/s][A
+
+Two Step Extraction:  78%|███████▊  | 43/55 [00:13<00:01,  9.03it/s][A
+
+Two Step Extraction:  85%|████████▌ | 47/55 [00:14<00:01,  7.57it/s][A
+
+Two Step Extraction:  87%|████████▋ | 48/55 [00:14<00:01,  6.58it/s][A
+
+Two Step Extraction:  95%|█████████▍| 52/55 [00:14<00:00,  8.68it/s][A
+Two Step Extraction: 100%|██████████| 55/55 [00:14<00:00,  3.74it/s]
+
+Processing pages:  83%|████████▎ | 259/311 [00:10<00:02, 23.27it/s]
+Processing pages:  84%|████████▍ | 262/311 [00:10<00:01, 24.67it/s]
+Processing pages:  85%|████████▌ | 265/311 [00:10<00:01, 24.22it/s]
+Processing pages:  86%|████████▌ | 268/311 [00:10<00:01, 25.29it/s]
+Processing pages:  87%|████████▋ | 271/311 [00:10<00:01, 24.31it/s]
+Processing pages:  88%|████████▊ | 274/311 [00:10<00:01, 23.96it/s]
+Processing pages:  89%|████████▉ | 277/311 [00:11<00:01, 24.92it/s]
+Processing pages:  90%|█████████ | 280/311 [00:11<00:01, 25.73it/s]
+Processing pages:  91%|█████████ | 283/311 [00:11<00:01, 25.90it/s]
+Processing pages:  92%|█████████▏| 287/311 [00:11<00:00, 28.24it/s]
+Processing pages:  93%|█████████▎| 290/311 [00:11<00:00, 26.81it/s]
+Processing pages:  94%|█████████▍| 293/311 [00:11<00:00, 25.15it/s]
+Processing pages:  95%|█████████▌| 296/311 [00:11<00:00, 25.03it/s]
+Processing pages:  96%|█████████▌| 299/311 [00:11<00:00, 25.44it/s]
+Processing pages:  97%|█████████▋| 302/311 [00:12<00:00, 25.43it/s]
+Processing pages:  98%|█████████▊| 305/311 [00:12<00:00, 25.64it/s]
+Processing pages:  99%|█████████▉| 308/311 [00:12<00:00, 24.49it/s]
+Processing pages: 100%|██████████| 311/311 [00:12<00:00, 24.42it/s]
+Processing pages: 100%|██████████| 311/311 [00:12<00:00, 25.06it/s]
+2026-06-21 16:33:27.969 | INFO     | mineru.cli.client:run_planned_task:883 - Completed batch 1/1 | Processed 311/311 pages | 1 of 1 batch finished | task#1 [text01]
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+(EngineCore pid=1522) INFO 06-21 16:33:28 [core.py:1242] Shutdown initiated (timeout=0)
+(EngineCore pid=1522) INFO 06-21 16:33:28 [core.py:1265] Shutdown complete
+[rank0]:[W621 16:33:30.005501442 ProcessGroupNCCL.cpp:1575] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1408]
+
+===== summary =====
+end: 2026-06-21T16:33:39
+elapsed_seconds: 247.079
+return_code: 0

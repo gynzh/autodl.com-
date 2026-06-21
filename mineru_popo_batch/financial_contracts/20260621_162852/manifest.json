@@ -1,0 +1,117 @@
+{
+  "count": 14,
+  "documents": [
+    {
+      "index": 0,
+      "doc_id": "text01",
+      "pdf_path": "/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text01.pdf",
+      "pdf_name": "text01.pdf",
+      "pdf_size_bytes": 7822375,
+      "pdf_size_human": "7.46MB"
+    },
+    {
+      "index": 1,
+      "doc_id": "text02",
+      "pdf_path": "/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text02.pdf",
+      "pdf_name": "text02.pdf",
+      "pdf_size_bytes": 7222422,
+      "pdf_size_human": "6.89MB"
+    },
+    {
+      "index": 2,
+      "doc_id": "text03",
+      "pdf_path": "/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text03.pdf",
+      "pdf_name": "text03.pdf",
+      "pdf_size_bytes": 13443633,
+      "pdf_size_human": "12.82MB"
+    },
+    {
+      "index": 3,
+      "doc_id": "text04",
+      "pdf_path": "/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text04.pdf",
+      "pdf_name": "text04.pdf",
+      "pdf_size_bytes": 13821429,
+      "pdf_size_human": "13.18MB"
+    },
+    {
+      "index": 4,
+      "doc_id": "text05",
+      "pdf_path": "/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text05.pdf",
+      "pdf_name": "text05.pdf",
+      "pdf_size_bytes": 6211838,
+      "pdf_size_human": "5.92MB"
+    },
+    {
+      "index": 5,
+      "doc_id": "text06",
+      "pdf_path": "/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text06.pdf",
+      "pdf_name": "text06.pdf",
+      "pdf_size_bytes": 6142229,
+      "pdf_size_human": "5.86MB"
+    },
+    {
+      "index": 6,
+      "doc_id": "text07",
+      "pdf_path": "/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text07.pdf",
+      "pdf_name": "text07.pdf",
+      "pdf_size_bytes": 1548649,
+      "pdf_size_human": "1.48MB"
+    },
+    {
+      "index": 7,
+      "doc_id": "text08",
+      "pdf_path": "/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text08.pdf",
+      "pdf_name": "text08.pdf",
+      "pdf_size_bytes": 8587842,
+      "pdf_size_human": "8.19MB"
+    },
+    {
+      "index": 8,
+      "doc_id": "text09",
+      "pdf_path": "/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text09.pdf",
+      "pdf_name": "text09.pdf",
+      "pdf_size_bytes": 8062120,
+      "pdf_size_human": "7.69MB"
+    },
+    {
+      "index": 9,
+      "doc_id": "text10",
+      "pdf_path": "/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text10.pdf",
+      "pdf_name": "text10.pdf",
+      "pdf_size_bytes": 12595610,
+      "pdf_size_human": "12.01MB"
+    },
+    {
+      "index": 10,
+      "doc_id": "text11",
+      "pdf_path": "/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text11.pdf",
+      "pdf_name": "text11.pdf",
+      "pdf_size_bytes": 8472825,
+      "pdf_size_human": "8.08MB"
+    },
+    {
+      "index": 11,
+      "doc_id": "text12",
+      "pdf_path": "/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text12.pdf",
+      "pdf_name": "text12.pdf",
+      "pdf_size_bytes": 1362591,
+      "pdf_size_human": "1.30MB"
+    },
+    {
+      "index": 12,
+      "doc_id": "text13",
+      "pdf_path": "/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text13.pdf",
+      "pdf_name": "text13.pdf",
+      "pdf_size_bytes": 8289770,
+      "pdf_size_human": "7.91MB"
+    },
+    {
+      "index": 13,
+      "doc_id": "text14",
+      "pdf_path": "/root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts/text14.pdf",
+      "pdf_name": "text14.pdf",
+      "pdf_size_bytes": 7119062,
+      "pdf_size_human": "6.79MB"
+    }
+  ]
+}

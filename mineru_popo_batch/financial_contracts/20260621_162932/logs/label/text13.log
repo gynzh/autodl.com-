@@ -1,0 +1,41 @@
+===== popo_label_text13 =====
+start: 2026-06-21T17:29:02
+script:
+
+set -euo pipefail
+
+unset OMP_NUM_THREADS MKL_NUM_THREADS OPENBLAS_NUM_THREADS NUMEXPR_NUM_THREADS VECLIB_MAXIMUM_THREADS
+export OMP_NUM_THREADS=8
+export MKL_NUM_THREADS=8
+export OPENBLAS_NUM_THREADS=8
+export NUMEXPR_NUM_THREADS=8
+export VECLIB_MAXIMUM_THREADS=8
+export TOKENIZERS_PARALLELISM=false
+
+source /root/autodl-tmp/mineru-work/activate_popo.sh
+
+unset OMP_NUM_THREADS MKL_NUM_THREADS OPENBLAS_NUM_THREADS NUMEXPR_NUM_THREADS VECLIB_MAXIMUM_THREADS
+export OMP_NUM_THREADS=8
+export MKL_NUM_THREADS=8
+export OPENBLAS_NUM_THREADS=8
+export NUMEXPR_NUM_THREADS=8
+export VECLIB_MAXIMUM_THREADS=8
+export TOKENIZERS_PARALLELISM=false
+
+cd /root/autodl-tmp/mineru-work/repos/MinerU-Popo
+export POPO_MODEL_PATH=/root/autodl-tmp/models/MinerU-Popo
+export HF_HOME=/root/autodl-tmp/huggingface-cache
+export XDG_CACHE_HOME=/root/autodl-tmp/xdg-cache
+export HF_HUB_DISABLE_XET=1
+export CUDA_VISIBLE_DEVICES=0
+
+python /root/autodl-tmp/mineru-work/repos/MinerU-Popo/post_processing/label_normalization.py   --model mineru   --input-dir /autodl-fs/data/mineru_popo_batch/financial_contracts/20260621_162932/popo_input/mineru_vlm   --output-dir /autodl-fs/data/mineru_popo_batch/financial_contracts/20260621_162932/popo_outputs/label_normalization   --pdf-dir /root/autodl-tmp/airag/public_dataset_a/public_dataset_upload/raw/financial_contracts   --doc-id text13   --format post-processing
+
+
+===== output =====
+[label-normalization] model=mineru docs=1/1 format=post-processing output_dir=/autodl-fs/data/mineru_popo_batch/financial_contracts/20260621_162932/popo_outputs/label_normalization/mineru
+
+===== summary =====
+end: 2026-06-21T17:29:02
+elapsed_seconds: 0.356
+return_code: 0
